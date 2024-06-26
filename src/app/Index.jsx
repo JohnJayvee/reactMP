@@ -6,9 +6,12 @@ import Admission from '../components/Admission';
 import useAuth from '../components/Auth';
 import Login from './Login/Page';
 import useInactivityTimeout from '../components/useInactivityTimeout'
+import { redirect } from "react-router-dom";
+
 
 const HomePage = () => {
     const isLoggedIn = useAuth();
+
 
     useInactivityTimeout(() => {
         localStorage.removeItem("token");
@@ -16,7 +19,8 @@ const HomePage = () => {
     });
 
     if (!isLoggedIn) {
-        return <Login />;
+        redirect('/login')
+
     }
 
     return (
