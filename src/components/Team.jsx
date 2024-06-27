@@ -1,74 +1,164 @@
 import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'; // Importing brand icons
+import image from '../img/blog-1.jpg'; // Example image import
 
-// Team Member Component
-const TeamMember = ({ name, position, imageUrl }) => (
-    <div className="team-item">
-        <div className="relative overflow-hidden">
-            <img className="w-full" src={imageUrl} alt={name} />
-            <div className="team-overlay">
-                <div className="flex items-center justify-start">
-                    <a className="btn btn-light btn-square mx-1" href="#"><i className="bi bi-twitter"></i></a>
-                    <a className="btn btn-light btn-square mx-1" href="#"><i className="bi bi-facebook"></i></a>
-                    <a className="btn btn-light btn-square mx-1" href="#"><i className="bi bi-linkedin"></i></a>
-                </div>
-            </div>
-        </div>
-        <div className="bg-light text-center p-4">
-            <h5 className="text-uppercase">{name}</h5>
-            <p className="m-0">{position}</p>
-        </div>
+const NextArrow = ({ className, style, onClick }) => (
+    <div
+        className={className}
+        style={{
+            display: 'block',
+            position: 'absolute',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            right: '-20px',
+            zIndex: 1,
+            cursor: 'pointer',
+        }}
+        onClick={onClick}
+    >
+        <FontAwesomeIcon
+            className="bg-blue-600 text-gray-300 border-2 border-transparent rounded-full text-md w-9 h-9 flex justify-center items-center"
+            icon={faArrowRight}
+        />
     </div>
 );
 
-// Team Carousel Component
-const TeamCarousel = () => {
+const PrevArrow = ({ className, style, onClick }) => (
+    <div
+        className={className}
+        style={{
+            display: 'block',
+            position: 'absolute',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            left: '-20px',
+            zIndex: 1,
+            cursor: 'pointer',
+        }}
+        onClick={onClick}
+    >
+        <FontAwesomeIcon
+            className="bg-blue-600 text-gray-300 border-2 border-transparent rounded-full text-md w-9 h-9 flex justify-center items-center"
+            icon={faArrowLeft}
+        />
+    </div>
+);
+
+const TeamSection = () => {
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4, // Show 4 slides on desktop
+        slidesToScroll: 1,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
+        responsive: [
+            {
+                breakpoint: 1024, // for large tablets and small desktops
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                }
+            },
+            {
+                breakpoint: 768, // for tablets
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 480, // for mobile devices
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
+    };
+
+    const teamMembers = [
+        {
+            image: 'img/team-1.jpg',
+            name: 'Dr. Angel C. Alcala',
+            position: 'Veterinarian',
+            social: [
+                { icon: faFacebookF, link: 'https://www.facebook.com' },
+                { icon: faTwitter, link: 'https://www.twitter.com' },
+                { icon: faInstagram, link: 'https://www.instagram.com' }
+            ]
+        },
+        {
+            image: 'img/team-2.jpg',
+            name: 'Dr. Ma. Gracia Dizon-Flores',
+            position: 'Veterinarian',
+            social: [
+                { icon: faFacebookF, link: 'https://www.facebook.com' },
+                { icon: faTwitter, link: 'https://www.twitter.com' },
+                { icon: faInstagram, link: 'https://www.instagram.com' }
+            ]
+        },
+        {
+            image: 'img/team-2.jpg',
+            name: 'Dr. Ma. Gracia Dizon-Flores',
+            position: 'Veterinarian',
+            social: [
+                { icon: faFacebookF, link: 'https://www.facebook.com' },
+                { icon: faTwitter, link: 'https://www.twitter.com' },
+                { icon: faInstagram, link: 'https://www.instagram.com' }
+            ]
+        },
+        {
+            image: 'img/team-2.jpg',
+            name: 'Dr. Ma. Gracia Dizon-Flores',
+            position: 'Veterinarian',
+            social: [
+                { icon: faFacebookF, link: 'https://www.facebook.com' },
+                { icon: faTwitter, link: 'https://www.twitter.com' },
+                { icon: faInstagram, link: 'https://www.instagram.com' }
+            ]
+        },
+        // Add more team members as needed
+    ];
+
     return (
-        <div className="container">
-            <div className="border-start border-5 border-primary ps-5 mb-5 max-w-2xl">
-                <h6 className="text-primary text-uppercase">Team Members</h6>
-                <h1 className="text-5xl uppercase mb-0">Qualified Pets Care Professionals</h1>
+        <div className="container mx-auto p-4 pt-6 md:p-6 lg:p-12">
+            <div className="border-l-4 border-blue-700 pl-4 mb-4 md:mb-6 lg:mb-12">
+                <h6 className="text-blue-700 uppercase">Team Members</h6>
+                <h1 className="text-3xl md:text-4xl uppercase font-bold mb-0">Qualified School Staff</h1>
             </div>
-            <div className="owl-carousel team-carousel relative owl-drag">
-                <div className="owl-stage-outer">
-                    <div className="owl-stage">
-                        <div className="owl-item">
-                            <TeamMember
-                                name="Dr. Ma. Gracia Dizon-Flores"
-                                position="Veterinarian"
-                                imageUrl="/img/team-1.jpg"
-                            />
+            <Slider {...settings}>
+                {teamMembers.map((member, index) => (
+                    <div key={index} className="team-item p-2">
+                        <div className="relative overflow-hidden group">
+                            <img src={image} alt={member.name} className="w-full transition-transform duration-500 transform group-hover:scale-105" />
+                            <div className="team-overlay absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <div className="flex space-x-2">
+                                    {member.social.map((socialLink, idx) => (
+                                        <a key={idx} href={socialLink.link} target="_blank" rel="noopener noreferrer" className="text-white w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-600 transition duration-300">
+                                            <FontAwesomeIcon icon={socialLink.icon} />
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
-                        <div className="owl-item">
-                            <TeamMember
-                                name="Lyka Mae Paco"
-                                position="Training and Behavior/Care and Boarding"
-                                imageUrl="/img/team-2.jpg"
-                            />
-                        </div>
-                        <div className="owl-item">
-                            <TeamMember
-                                name="Dr. Ma. Veronica A. Marquez"
-                                position="Veterinary Nutritionist"
-                                imageUrl="/img/team-3.jpg"
-                            />
-                        </div>
-                        <div className="owl-item">
-                            <TeamMember
-                                name="Grace Cruz"
-                                position="Grooming and Hygiene"
-                                imageUrl="/img/team-4.jpg"
-                            />
+                        <div className="bg-light text-center text-gray-200 p-4 bg-blue-700">
+                            <h5 className="uppercase">{member.name}</h5>
+                            <p className="m-0">{member.position}</p>
                         </div>
                     </div>
-                </div>
-                <div className="owl-nav">
-                    <div className="owl-prev"><i className="bi bi-arrow-left"></i></div>
-                    <div className="owl-next"><i className="bi bi-arrow-right"></i></div>
-                </div>
-                <div className="owl-dots disabled"></div>
-            </div>
+                ))}
+            </Slider>
         </div>
     );
 };
 
-export default TeamCarousel;
+export default TeamSection;
