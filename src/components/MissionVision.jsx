@@ -39,7 +39,7 @@ const MissionVision = () => {
                             </li>
                             <li className="w-1/2">
                                 <button
-                                    className={`block w-full text-lg uppercase font-semibold py-2 px-4 ${activeTab === 'vision' ? 'bg-blue-700 text-white' : 'bg-white text-primary'} rounded-full focus:outline-none`}
+                                    className={`block w-full text-lg uppercase font-semibold py-2 px-4 ${activeTab === 'vision' ? 'bg-blue-700 text-white' : 'bg-gray-100 text-primary'} rounded-full focus:outline-none`}
                                     onClick={() => handleTabChange('vision')}
                                 >
                                     Our Vision

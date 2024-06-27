@@ -51,7 +51,7 @@ const Header = () => {
                                 <Link to='/blogs' className='text-gray-100 hover:bg-pink-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium transition duration-300 transform hover:scale-105'>Blogs</Link>
                             </li>
                             <li>
-                                <a href='#' className='text-gray-100 hover:bg-pink-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium transition duration-300 transform hover:scale-105'>Contact</a>
+                                <a href='/contact' className='text-gray-100 hover:bg-pink-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium transition duration-300 transform hover:scale-105'>Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -69,7 +69,7 @@ const Header = () => {
                             <a href='/blogs' className='text-gray-300 hover:bg-pink-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium text-center transition duration-300 transform hover:scale-105'>Blogs</a>
                         </li>
                         <li>
-                            <a href='#' className='text-gray-300 hover:bg-pink-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium text-center transition duration-300 transform hover:scale-105'>Contact</a>
+                            <a href='/contact' className='text-gray-300 hover:bg-pink-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium text-center transition duration-300 transform hover:scale-105'>Contact</a>
                         </li>
                     </ul>
                 </div>

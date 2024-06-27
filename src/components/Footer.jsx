@@ -14,7 +14,7 @@ const Footer = () => {
                             <FontAwesomeIcon className='text-pink-700 mr-2' icon={faUserGraduate} /> Kodego College
                         </a>
                         <p className='mt-4 text-md text-center md:text-left'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero sit amet risus.
+                            We’d love to hear from you! Whether you have questions about our services, need to schedule an appointment, or simply want to learn more about how we can help your furry friend, our team is here to assist you.
                         </p>
                     </div>
 

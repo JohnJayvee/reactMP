@@ -8,7 +8,7 @@ import Footer from "../../components/Footer";
 // const Footer = React.lazy(() => import('../../components/Footer'));
 import blogImagePlaceholder from '../../img/blog-1.jpg'; // Placeholder image for blogs without images
 
-const Gallery = () => {
+const Blog = () => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -89,4 +89,4 @@ const Gallery = () => {
     );
 };
 
-export default Gallery;
+export default Blog;

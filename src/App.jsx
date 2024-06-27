@@ -9,6 +9,7 @@ const Login = lazy(() => import('./app/Login/Page'));
 const HomePage = lazy(() => import('./app/Index'));
 const AboutPage = lazy(() => import('./app/About/Page'));
 const Blog = lazy(() => import('./app/Blogs/Index'));
+const Contact = lazy(() => import('./app/Contact/Index'));
 const AdminBlog = lazy(() => import('./app/Admin/Blogs/Index'));
 const Gallery = lazy(() => import('./app/Gallery/Index'));
 
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/blogs" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/admin/blog" element={<AdminBlog />} />
         </Routes>

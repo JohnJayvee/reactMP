@@ -130,7 +130,8 @@ const TeamSection = () => {
     ];
 
     return (
-        <div className="container mx-auto p-4 pt-6 md:p-6 lg:p-12">
+        // <div className="container mx-auto p-4 pt-6 md:p-6 lg:p-12">
+        <div className="container mx-auto p-4 mt-20">
             <div className="border-l-4 border-blue-700 pl-4 mb-4 md:mb-6 lg:mb-12">
                 <h6 className="text-blue-700 uppercase">Team Members</h6>
                 <h1 className="text-3xl md:text-4xl uppercase font-bold mb-0">Qualified School Staff</h1>
