@@ -86,7 +86,7 @@ const ContactForm = () => {
                             <div className="flex flex-wrap -mx-2">
                                 <div className="w-full md:w-1/2 px-2 mb-4">
                                     <input
-                                        className={`form-control w-full p-3 border ${validationErrors.name ? 'border-red-500' : 'border-blue-300'} rounded-lg focus:outline-none focus:border-blue-700`}
+                                        className={`form-control w-full p-3 border ${validationErrors.name ? 'border-red-500' : 'border-blue-300'} rounded-lg focus:outline-none focus:border-pink-700`}
                                         name="name"
                                         id="name"
                                         type="text"
@@ -98,7 +98,7 @@ const ContactForm = () => {
                                 </div>
                                 <div className="w-full md:w-1/2 px-2 mb-4">
                                     <input
-                                        className={`form-control w-full p-3 border ${validationErrors.email ? 'border-red-500' : 'border-blue-300'} rounded-lg focus:outline-none focus:border-blue-700`}
+                                        className={`form-control w-full p-3 border ${validationErrors.email ? 'border-red-500' : 'border-blue-300'} rounded-lg focus:outline-none focus:border-pink-700`}
                                         name="email"
                                         id="email"
                                         type="email"
@@ -110,7 +110,7 @@ const ContactForm = () => {
                                 </div>
                                 <div className="w-full px-2 mb-4">
                                     <input
-                                        className={`form-control w-full p-3 border ${validationErrors.subject ? 'border-red-500' : 'border-blue-300'} rounded-lg focus:outline-none focus:border-blue-700`}
+                                        className={`form-control w-full p-3 border ${validationErrors.subject ? 'border-red-500' : 'border-blue-300'} rounded-lg focus:outline-none focus:border-pink-700`}
                                         name="subject"
                                         id="subject"
                                         type="text"
@@ -122,7 +122,7 @@ const ContactForm = () => {
                                 </div>
                                 <div className="w-full px-2 mb-4">
                                     <textarea
-                                        className={`form-control w-full h-40 p-3 border ${validationErrors.message ? 'border-red-500' : 'border-blue-300'} rounded-lg focus:outline-none focus:border-blue-700 resize-none`}
+                                        className={`form-control w-full h-40 p-3 border ${validationErrors.message ? 'border-red-500' : 'border-blue-300'} rounded-lg focus:outline-none focus:border-pink-700 resize-none`}
                                         name="message"
                                         id="message"
                                         value={formData.message}
@@ -134,7 +134,7 @@ const ContactForm = () => {
                                 <div className="w-full px-2">
                                     <button
                                         type="submit"
-                                        className="button bg-blue-700 text-white px-6 py-3 rounded-lg focus:outline-none hover:bg-blue-800"
+                                        className="button bg-blue-700 text-white px-6 py-3 rounded-lg focus:outline-none hover:bg-pink-700"
                                         disabled={loading}
                                     >
                                         {loading ? 'Sending...' : 'Send Message'}
