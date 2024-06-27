@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -8,31 +10,16 @@ const ContactForm = () => {
         subject: '',
         message: ''
     });
+    const [errors, setErrors] = useState({});
 
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
-    const [validationErrors, setValidationErrors] = useState({});
-    const [showSuccessModal, setShowSuccessModal] = useState(false);
-
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-        setValidationErrors({
-            ...validationErrors,
-            [e.target.name]: ''
-        });
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+        setErrors({ ...errors, [name]: '' });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
-        setError('');
-        setSuccess('');
-        setValidationErrors({});
-
         try {
             const response = await axios.post(
                 'http://kodegoapi.test/api/message/create',
@@ -43,31 +30,24 @@ const ContactForm = () => {
                     }
                 }
             );
-            console.log(response)
-            setSuccess('Message sent successfully!');
-            setShowSuccessModal(true); // Show success modal
-            setFormData({
-                name: '',
-                email: '',
-                subject: '',
-                message: ''
-            });
-        } catch (err) {
-            if (err.response && err.response.data && err.response.data.errors) {
-                setValidationErrors(err.response.data.errors);
-                console.log(err.response);
-
+            if (response.status === 200 || response.status === 201) {
+                toast.success('Message sent successfully!');
+                console.log(response)
+                setFormData({ name: '', email: '', subject: '', message: '' });
+                setErrors({});
             } else {
-                setError('Failed to send message. Please try again.');
+                toast.error('Failed to send message.');
             }
-        } finally {
-            setLoading(false);
+        } catch (error) {
+            if (error.response && error.response.status === 422) {
+                const apiErrors = error.response.data.errors || {};
+                setErrors(apiErrors);
+                toast.error('Validation error. Please check the fields.');
+                console.log(error.response);
+            } else {
+                toast.error('Failed to send message.');
+            }
         }
-    };
-
-    const closeModal = () => {
-        setShowSuccessModal(false);
-        setSuccess('');
     };
 
     return (
@@ -79,65 +59,74 @@ const ContactForm = () => {
             <div className="flex flex-wrap -mx-4">
                 <div className="w-full lg:w-8/12 px-4 mb-8">
                     <div className="bg-stone-50 rounded-lg shadow-lg p-6">
-                        <h2 className="text-2xl font-semibold text-black mb-4">Get in Touch</h2>
-                        {error && <div className="text-red-500 mb-4">{error}</div>}
-                        {success && <div className="text-green-500 mb-4">{success}</div>}
+                        <h2 className="text-2xl font-semibold text-blue-700 mb-4">Get in Touch</h2>
                         <form onSubmit={handleSubmit} noValidate>
                             <div className="flex flex-wrap -mx-2">
                                 <div className="w-full md:w-1/2 px-2 mb-4">
                                     <input
-                                        className={`form-control w-full p-3 border ${validationErrors.name ? 'border-red-500' : 'border-blue-300'} rounded-lg focus:outline-none focus:border-pink-700`}
+                                        className={`form-control w-full p-3 border rounded-lg focus:outline-none ${errors.name ? 'border-red-500' : 'border-blue-300'
+                                            }`}
                                         name="name"
                                         id="name"
                                         type="text"
                                         value={formData.name}
-                                        onChange={handleChange}
+                                        onChange={handleInputChange}
+                                        onFocus={(e) => (e.target.placeholder = '')}
+                                        onBlur={(e) => (e.target.placeholder = 'Enter your name')}
                                         placeholder="Enter your name"
                                     />
-                                    {validationErrors.name && <div className="text-red-500 text-sm mt-1">{validationErrors.name}</div>}
+                                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name[0]}</p>}
                                 </div>
                                 <div className="w-full md:w-1/2 px-2 mb-4">
                                     <input
-                                        className={`form-control w-full p-3 border ${validationErrors.email ? 'border-red-500' : 'border-blue-300'} rounded-lg focus:outline-none focus:border-pink-700`}
+                                        className={`form-control w-full p-3 border rounded-lg focus:outline-none ${errors.email ? 'border-red-500' : 'border-blue-300'
+                                            }`}
                                         name="email"
                                         id="email"
                                         type="email"
                                         value={formData.email}
-                                        onChange={handleChange}
+                                        onChange={handleInputChange}
+                                        onFocus={(e) => (e.target.placeholder = '')}
+                                        onBlur={(e) => (e.target.placeholder = 'Enter email address')}
                                         placeholder="Email"
                                     />
-                                    {validationErrors.email && <div className="text-red-500 text-sm mt-1">{validationErrors.email}</div>}
+                                    {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email[0]}</p>}
                                 </div>
                                 <div className="w-full px-2 mb-4">
                                     <input
-                                        className={`form-control w-full p-3 border ${validationErrors.subject ? 'border-red-500' : 'border-blue-300'} rounded-lg focus:outline-none focus:border-pink-700`}
+                                        className={`form-control w-full p-3 border rounded-lg focus:outline-none ${errors.subject ? 'border-red-500' : 'border-blue-300'
+                                            }`}
                                         name="subject"
                                         id="subject"
                                         type="text"
                                         value={formData.subject}
-                                        onChange={handleChange}
+                                        onChange={handleInputChange}
+                                        onFocus={(e) => (e.target.placeholder = '')}
+                                        onBlur={(e) => (e.target.placeholder = 'Enter Subject')}
                                         placeholder="Enter Subject"
                                     />
-                                    {validationErrors.subject && <div className="text-red-500 text-sm mt-1">{validationErrors.subject}</div>}
+                                    {errors.subject && <p className="text-red-500 text-xs mt-1">{errors.subject[0]}</p>}
                                 </div>
                                 <div className="w-full px-2 mb-4">
                                     <textarea
-                                        className={`form-control w-full h-40 p-3 border ${validationErrors.message ? 'border-red-500' : 'border-blue-300'} rounded-lg focus:outline-none focus:border-pink-700 resize-none`}
+                                        className={`form-control w-full h-40 p-3 border rounded-lg focus:outline-none ${errors.message ? 'border-red-500' : 'border-blue-300'
+                                            }`}
                                         name="message"
                                         id="message"
                                         value={formData.message}
-                                        onChange={handleChange}
+                                        onChange={handleInputChange}
+                                        onFocus={(e) => (e.target.placeholder = '')}
+                                        onBlur={(e) => (e.target.placeholder = 'Enter Message')}
                                         placeholder="Enter Message"
                                     ></textarea>
-                                    {validationErrors.message && <div className="text-red-500 text-sm mt-1">{validationErrors.message}</div>}
+                                    {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message[0]}</p>}
                                 </div>
                                 <div className="w-full px-2">
                                     <button
                                         type="submit"
-                                        className="button bg-blue-700 text-white px-6 py-3 rounded-lg focus:outline-none hover:bg-pink-700"
-                                        disabled={loading}
+                                        className="button bg-blue-700 text-white px-6 py-3 rounded-lg focus:outline-none hover:bg-blue-800"
                                     >
-                                        {loading ? 'Sending...' : 'Send Message'}
+                                        Send Message
                                     </button>
                                 </div>
                             </div>
@@ -152,7 +141,7 @@ const ContactForm = () => {
                                     <i className="ti-home"></i>
                                 </span>
                                 <div className="media-body">
-                                    <h3 className="text-xl font-semibold">Buttonwood, California.</h3>
+                                    <h3 className="text-xl font-semibold text-blue-700">Buttonwood, California.</h3>
                                     <p className="text-gray-600">Rosemead, CA 91770</p>
                                 </div>
                             </div>
@@ -161,7 +150,7 @@ const ContactForm = () => {
                                     <i className="ti-tablet"></i>
                                 </span>
                                 <div className="media-body">
-                                    <h3 className="text-xl font-semibold">+1 253 565 2365</h3>
+                                    <h3 className="text-xl font-semibold text-blue-700">+1 253 565 2365</h3>
                                     <p className="text-gray-600">Mon to Fri 9am to 6pm</p>
                                 </div>
                             </div>
@@ -170,7 +159,7 @@ const ContactForm = () => {
                                     <i className="ti-email"></i>
                                 </span>
                                 <div className="media-body">
-                                    <h3 className="text-xl font-semibold">support@colorlib.com</h3>
+                                    <h3 className="text-xl font-semibold text-blue-700">support@colorlib.com</h3>
                                     <p className="text-gray-600">Send us your query anytime!</p>
                                 </div>
                             </div>
@@ -180,22 +169,7 @@ const ContactForm = () => {
             </div>
             {/* Divider */}
             <hr className="my-12 border-gray-300" />
-
-            {/* Success Modal */}
-            {showSuccessModal && (
-                <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="bg-white rounded-lg shadow-lg p-6">
-                        <h2 className="text-2xl font-semibold text-green-700 mb-4">Success</h2>
-                        <p className="text-gray-700 mb-4">Message sent successfully!</p>
-                        <button
-                            onClick={closeModal}
-                            className="bg-blue-700 text-white px-6 py-2 rounded-lg focus:outline-none hover:bg-blue-800"
-                        >
-                            Close
-                        </button>
-                    </div>
-                </div>
-            )}
+            <ToastContainer />
         </div>
     );
 };
