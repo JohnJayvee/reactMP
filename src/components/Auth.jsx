@@ -10,15 +10,15 @@ const useAuth = () => {
 
 
 
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (!token) {
-            navigate('/login', { replace: true });
-        } else {
-            setIsLoggedIn(true);
-            localStorage.getItem('token');
-        }
-    }, [navigate]);
+    // useEffect(() => {
+    //     const token = localStorage.getItem('token');
+    //     if (!token) {
+    //         navigate('/login', { replace: true });
+    //     } else {
+    //         setIsLoggedIn(true);
+    //         localStorage.getItem('token');
+    //     }
+    // }, [navigate]);
 
     return isLoggedIn;
 };
