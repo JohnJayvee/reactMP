@@ -1,6 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faUtensils, faCut, faCat, faDog, faSyringe } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
+
 
 const services = [
     {
@@ -53,6 +55,13 @@ const ServiceItem = ({ icon, title, description, link }) => (
         </div>
     </div>
 );
+ServiceItem.propTypes = {
+    icon: PropTypes.string.isRequired,
+    title: PropTypes.func.isRequired,
+    description: PropTypes.func.isRequired,
+    link: PropTypes.func.isRequired,
+};
+
 
 const Services = () => (
     <div className="container mx-auto p-4 mt-20">
