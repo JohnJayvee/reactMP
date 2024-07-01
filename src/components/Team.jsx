@@ -33,8 +33,8 @@ const NextArrow = ({ className, onClick }) => (
 );
 
 NextArrow.propTypes = {
-    className: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
+    className: PropTypes.string,
+    onClick: PropTypes.func,
 };
 
 
@@ -62,8 +62,8 @@ const PrevArrow = ({ className, onClick }) => (
 );
 
 PrevArrow.propTypes = {
-    className: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
+    className: PropTypes.string,
+    onClick: PropTypes.func,
 };
 
 const TeamSection = () => {
@@ -128,7 +128,7 @@ const TeamSection = () => {
         <div className="container mx-auto p-4 mt-20">
             <div className="border-l-4 border-blue-700 pl-4 mb-4 md:mb-6 lg:mb-12">
                 <h6 className="text-blue-700 uppercase">Team Members</h6>
-                <h1 className="text-3xl md:text-4xl uppercase font-bold mb-0">Qualified School Staff</h1>
+                <h1 className="text-3xl md:text-4xl uppercase font-bold mb-0">Competent Developer</h1>
             </div>
             <Slider {...settings}>
                 {teamMembers.map((member, index) => (
