@@ -25,7 +25,7 @@ const MissionVision = () => {
                         <h1 className="text-3xl lg:text-4xl uppercase font-bold mb-5">We Keep Your Education Quality</h1>
                     </div>
                     <p className="text-md mb-4">
-                        Welcome to Kodego School, a beacon of innovation and excellence in tech education. Established with the mission to bridge the gap between traditional education and the rapidly evolving demands of the tech industry, Kodego School stands at the forefront of preparing students for the challenges and opportunities of the digital age.
+                        Welcome to Kodego, where we specialize in crafting visually stunning and highly functional websites tailored to meet your business needs. With a focus on user-friendly design and performance optimization, we ensure every website is responsive and engaging. Our collaborative approach means we work closely with you to understand your goals and deliver custom solutions that resonate with your audience. Beyond web development, we offer SEO optimization, content management, and digital marketing services to enhance your online presence. At Kodego, we are committed to excellence, innovation, and customer satisfaction, making us your trusted partner in the digital world.
                     </p>
                     <div className="relative overflow-hidden">
                         <ul className="flex justify-between mb-3">
@@ -46,13 +46,14 @@ const MissionVision = () => {
                                 </button>
                             </li>
                         </ul>
-                        <div className="relative h-32">
+                        <div className="relative h-48">
                             <TransitionGroup className="relative h-full">
                                 {activeTab === 'mission' && (
                                     <CSSTransition key="mission" timeout={300} classNames="fade">
                                         <div className="absolute inset-0 leading-7 text-black p-4">
-                                            <p className="mb-4 text-md">
-                                                At Kodego School, our mission is simple yet profound: to empower individuals through education and technology. We strive to create a learning environment that nurtures curiosity, fosters creativity, and instills the confidence to innovate. Our programs are designed to equip students with the skills, knowledge, and mindset needed to thrive in today's fast-paced tech landscape.
+                                            <p className="mb-72 text-md">
+                                                Our mission in web development is to create designs that are fully responsive and free from bugs or glitches. We are dedicated to ensuring that every website we develop not only looks great but also functions seamlessly on all devices
+
                                             </p>
                                         </div>
                                     </CSSTransition>
@@ -61,7 +62,7 @@ const MissionVision = () => {
                                     <CSSTransition key="vision" timeout={300} classNames="fade">
                                         <div className="absolute inset-0 leading-7 text-black p-4">
                                             <p className="mb-4">
-                                                We envision a future where education is flexible, inclusive, and directly aligned with industry needs. Kodego School aims to be a global leader in tech education, constantly evolving and adapting our curriculum to stay ahead of technological advancements. We are committed to producing graduates who are not only proficient in their technical skills but also capable of critical thinking, problem-solving, and continuous learning.
+                                                Our vision is to set a new standard in web development by consistently delivering innovative and functional designs. We aspire to be recognized as leaders in creating user-friendly, aesthetically pleasing, and highly responsive websites that exceed client expectations and enhance the digital experience for all users.
                                             </p>
                                         </div>
                                     </CSSTransition>
