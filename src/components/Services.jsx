@@ -1,44 +1,43 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse, faUtensils, faCut, faCat, faDog, faSyringe } from '@fortawesome/free-solid-svg-icons';
+import { faSyringe, faLaptop, faLayerGroup, faCloud, faCode, faMobileAlt, faGauge } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
-
 
 const services = [
     {
-        icon: faHouse,
-        title: "Pet Boarding",
-        description: "Providing care for pets while their owners are away, either through in-home visits or at a boarding facility.",
+        icon: faLaptop,
+        title: "Web Design",
+        description: "Web design encompasses many different skills and disciplines in the production and maintenance of websites. The different areas of web design include web graphic design; user interface design; authoring, including standardised code and proprietary software; user experience design; and search engine optimization",
         link: "Book.html"
     },
     {
-        icon: faUtensils,
-        title: "Pet Feeding",
-        description: "We cater to pets with specific dietary needs, including weight management, allergies, and medical conditions, ensuring they get the right nutrition without compromising on taste.",
+        icon: faLayerGroup,
+        title: "Development",
+        description: "Web development is the work involved in developing a website for the Internet or an intranet. Web development can range from developing a simple single static page of plain text to complex web applications, electronic businesses, and social network services",
         link: "Book.html"
     },
     {
-        icon: faCut,
-        title: "Pet Grooming",
-        description: "Bathing, hair trimming, nail clipping, and other grooming services to keep pets clean and healthy.",
+        icon: faCloud,
+        title: "Cloud Server",
+        description: "A cloud server is a pooled, centralized server resource that is hosted and delivered over a network—typically the Internet—and accessed on demand by multiple users. Cloud servers can perform all the same functions of a traditional physical server, delivering processing power, storage and applications",
         link: "Book.html"
     },
     {
-        icon: faCat,
-        title: "Pet Training",
-        description: "Basic obedience training focuses on essential commands such as sit, stay, come, and heel. Perfect for dogs of all ages, this program helps establish a strong foundation of good behavior.",
+        icon: faCode,
+        title: "Clean Code",
+        description: "Even bad code can function. But if code isn't clean, it can bring a development organization to its knees. Every year, countless hours and significant resources are lost because of poorly written code. But it doesn't have to be that way",
         link: ""
     },
     {
-        icon: faDog,
-        title: "Pet Exercise",
-        description: "Regular exercise and outdoor activities for dogs to maintain their physical and mental well-being.",
+        icon: faMobileAlt,
+        title: "Fully Responsive",
+        description: "Responsive web design or responsive design is an approach to web design that aims to make web pages render well on a variety of devices and window or screen sizes from minimum to maximum display size to ensure usability and satisfaction",
         link: "Book.html"
     },
     {
-        icon: faSyringe,
-        title: "Pet Treatment",
-        description: "Encompass a wide range of veterinary care designed to keep your furry companions healthy, happy, and thriving.",
+        icon: faGauge,
+        title: "Custom Support",
+        description: "Web performance refers to the speed in which web pages are downloaded and displayed on the user's web browser. Web performance optimization, or website optimization is the field of knowledge about increasing web performance",
         link: "Book.html"
     }
 ];
@@ -56,10 +55,10 @@ const ServiceItem = ({ icon, title, description, link }) => (
     </div>
 );
 ServiceItem.propTypes = {
-    icon: PropTypes.string.isRequired,
-    title: PropTypes.func.isRequired,
-    description: PropTypes.func.isRequired,
-    link: PropTypes.func.isRequired,
+    icon: PropTypes.object.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
 };
 
 
@@ -67,7 +66,7 @@ const Services = () => (
     <div className="container mx-auto p-4 mt-20">
         <div className="border-l-4 border-blue-700 pl-4 mb-5" style={{ maxWidth: '600px' }}>
             <h6 className="text-blue-700 uppercase">Services</h6>
-            <h1 className="text-4xl uppercase mb-0 font-bold">Our Excellent Pet Care Services</h1>
+            <h1 className="text-4xl uppercase mb-0 font-bold">Our Development Services</h1>
         </div>
         <div className="flex flex-wrap -mx-4">
             {services.map((service, index) => (
