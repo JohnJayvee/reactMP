@@ -37,7 +37,6 @@ const HomePage = () => {
             <SectionBanner/>
             <SectionWebPackage />
             <CounterUpPage />
-            <SectionNewsletter />
             <Footer />
         </div>
     );
