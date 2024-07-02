@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import ComponentButton from '../components/Button';
 
 import image from '../img/blog-1.jpg';
 
@@ -30,20 +31,20 @@ const MissionVision = () => {
                     <div className="relative overflow-hidden">
                         <ul className="flex justify-between mb-3">
                             <li className="w-1/2">
-                                <button
+                                <ComponentButton
                                     className={`block w-full text-lg uppercase font-semibold py-2 px-4 ${activeTab === 'mission' ? 'bg-blue-700 text-white' : 'bg-gray-100 text-primary'} rounded-full focus:outline-none`}
                                     onClick={() => handleTabChange('mission')}
                                 >
                                     Our Mission
-                                </button>
+                                </ComponentButton>
                             </li>
                             <li className="w-1/2">
-                                <button
+                                <ComponentButton
                                     className={`block w-full text-lg uppercase font-semibold py-2 px-4 ${activeTab === 'vision' ? 'bg-blue-700 text-white' : 'bg-gray-100 text-primary'} rounded-full focus:outline-none`}
                                     onClick={() => handleTabChange('vision')}
                                 >
                                     Our Vision
-                                </button>
+                                </ComponentButton>
                             </li>
                         </ul>
                         <div className="relative h-48">

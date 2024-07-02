@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode } from '@fortawesome/free-solid-svg-icons';
+import ComponentButton from '../components/Button'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +19,7 @@ const Header = () => {
           </div>
           {/* Mobile menu button */}
           <div className='md:hidden'>
-            <button
+            <ComponentButton
               className='text-white focus:outline-none'
               onClick={() => setIsOpen(!isOpen)}
             >
@@ -36,7 +37,7 @@ const Header = () => {
                   d='M4 6h16M4 12h16m-7 6h7'
                 />
               </svg>
-            </button>
+            </ComponentButton>
           </div>
           {/* Desktop navigation links */}
           <div className='hidden md:flex items-center space-x-4'>

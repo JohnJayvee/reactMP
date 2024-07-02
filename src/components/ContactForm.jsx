@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ComponentButton from './Button';
 import ComponentInput from './Input';
+import ComponentTextarea from './Textarea';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -111,17 +112,17 @@ const ContactForm = () => {
                   {errors.subject && <p className="text-red-500 text-xs mt-1">{errors.subject[0]}</p>}
                 </div>
                 <div className="w-full px-2 mb-4">
-                  <textarea
+                  <ComponentTextarea
                     className={`form-control w-full h-40 p-3 border rounded-lg focus:outline-none resize-none ${errors.message ? 'border-red-500' : formData.message ? 'border-green-500' : 'border-blue-300'
                       }`}
                     name="message"
                     id="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    onFocus={(e) => (e.target.placeholder = '')}
-                    onBlur={(e) => (e.target.placeholder = 'Enter Message')}
+                    // onFocus={(e) => (e.target.placeholder = '')}
+                    // onBlur={(e) => (e.target.placeholder = 'Enter Message')}
                     placeholder="Enter Message"
-                  ></textarea>
+                  ></ComponentTextarea>
                   {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message[0]}</p>}
                 </div>
                 <div className="w-full px-2">

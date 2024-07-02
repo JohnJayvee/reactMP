@@ -1,5 +1,6 @@
 // src/components/Carousel.jsx
 import React, { useState, useEffect } from 'react';
+import ComponentButton from '../components/Button'
 
 const Carousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -40,8 +41,7 @@ const Carousel = () => {
                     </div>
                 ))}
             </div>
-            <button
-                type="button"
+            <ComponentButton
                 className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 onClick={() => updateCarousel(currentIndex - 1)}
             >
@@ -63,9 +63,9 @@ const Carousel = () => {
                     </svg>
                     <span className="sr-only">Previous</span>
                 </span>
-            </button>
-            <button
-                type="button"
+            </ComponentButton>
+            <ComponentButton
+
                 className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                 onClick={() => updateCarousel(currentIndex + 1)}
             >
@@ -87,7 +87,7 @@ const Carousel = () => {
                     </svg>
                     <span className="sr-only">Next</span>
                 </span>
-            </button>
+            </ComponentButton>
         </div>
     );
 };
