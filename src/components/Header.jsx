@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobe, faUserGraduate } from '@fortawesome/free-solid-svg-icons';
+import { faCode } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +13,7 @@ const Header = () => {
                     <div className='flex items-center'>
                         {/* Logo or site title */}
                         <a href='#' className='text-white text-2xl font-semibold'>
-                            <FontAwesomeIcon className='text-white-700' icon={faGlobe} /> JJ Web Service Solution
+                            <FontAwesomeIcon className='text-pink-700' icon={faCode} /> JJ Web Service Solution
                         </a>
                     </div>
                     {/* Mobile menu button */}
@@ -48,7 +48,7 @@ const Header = () => {
                                 <Link to='/about' className='text-gray-100 hover:bg-pink-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium transition duration-300 transform hover:scale-105'>About</Link>
                             </li>
                             <li>
-                                <Link to='/blogs' className='text-gray-100 hover:bg-pink-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium transition duration-300 transform hover:scale-105'>Blogs</Link>
+                                <Link to='/prices' className='text-gray-100 hover:bg-pink-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium transition duration-300 transform hover:scale-105'>Price</Link>
                             </li>
                             <li>
                                 <a href='/contact' className='text-gray-100 hover:bg-pink-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium transition duration-300 transform hover:scale-105'>Contact</a>

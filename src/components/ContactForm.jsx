@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ComponentButton from './Button';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -109,7 +110,7 @@ const ContactForm = () => {
                                 </div>
                                 <div className="w-full px-2 mb-4">
                                     <textarea
-                                        className={`form-control w-full h-40 p-3 border rounded-lg focus:outline-none ${errors.message ? 'border-red-500' : 'border-blue-300'
+                                        className={`form-control w-full h-40 p-3 border rounded-lg focus:outline-none resize-none ${errors.message ? 'border-red-500' : 'border-blue-300'
                                             }`}
                                         name="message"
                                         id="message"
@@ -122,12 +123,8 @@ const ContactForm = () => {
                                     {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message[0]}</p>}
                                 </div>
                                 <div className="w-full px-2">
-                                    <button
-                                        type="submit"
-                                        className="button bg-blue-700 text-white px-6 py-3 rounded-lg focus:outline-none hover:bg-blue-800"
-                                    >
-                                        Send Message
-                                    </button>
+                                    <ComponentButton className='bg-blue-700 text-white px-6 py-3 rounded-lg focus:outline-none hover:bg-pink-800'>Send Message</ComponentButton>
+
                                 </div>
                             </div>
                         </form>

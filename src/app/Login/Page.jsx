@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserGraduate } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Button from '../../components/Button';
+import ComponentButton from '../../components/Button';
 import LoginInput from '../../components/LoginInput';
 
 const Login = () => {
@@ -139,7 +139,7 @@ const Login = () => {
                             </div>
                         </div>
                         <div>
-                            <Button>Login</Button>
+                            <ComponentButton className='group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'>Login</ComponentButton>
                         </div>
                     </form>
                 </div>

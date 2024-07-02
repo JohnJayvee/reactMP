@@ -50,7 +50,7 @@ const ServiceItem = ({ icon, title, description, link }) => (
                 <h5 className="uppercase font-bold">{title}</h5>
             </div>
             <p className="flex-grow">{description}</p>
-            <a className="text-blue-700 transition-colors duration-300 hover:font-bold group-hover:text-pink-700 uppercase mt-4 inline-block" href={link}>Book Now<i className="bi bi-chevron-right"></i></a>
+            {/* <a className="text-blue-700 transition-colors duration-300 hover:font-bold group-hover:text-pink-700 uppercase mt-4 inline-block" href={link}>Book Now<i className="bi bi-chevron-right"></i></a> */}
         </div>
     </div>
 );

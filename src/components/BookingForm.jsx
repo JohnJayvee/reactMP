@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Select from 'react-select/creatable'
+import ComponentButton from './Button';
+
+
 
 function BookingForm() {
     const [formData, setFormData] = useState({
@@ -15,6 +19,30 @@ function BookingForm() {
         targetDate: '',
         message: ''
     });
+
+    const serviceOptions = [
+        { value: 'website-creation', label: 'Website Creation and Maintenance' },
+        { value: 'content-marketing', label: 'Content Marketing' },
+        { value: 'creative-branding', label: 'Creative Branding' },
+        { value: 'seo', label: 'Search Engine Optimization' },
+        { value: 'ssm', label: 'Social Media Marketing' },
+        { value: 'virtual-assistant', label: 'Virtual Assistant' },
+        { value: 'hosting-domain', label: 'Hosting and Domain' },
+        { value: 'influencer-marketing', label: 'Influencer Marketing' },
+    ];
+    const handleSelectChange = (selectedOption) => {
+        setFormData({ ...formData, service: selectedOption ? selectedOption.value : '' });
+        setErrors({ ...errors, service: null });
+    };
+
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
+        // Clear error for the current input field on change
+        setErrors({ ...errors, [name]: null });
+    };
+
 
     const [errors, setErrors] = useState({});
 
@@ -54,13 +82,6 @@ function BookingForm() {
                 toast.error('An error occurred. Please try again later.');
             }
         }
-    };
-
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setFormData({ ...formData, [name]: value });
-        // Clear error for the current input field on change
-        setErrors({ ...errors, [name]: null });
     };
 
     return (
@@ -155,23 +176,16 @@ function BookingForm() {
                                 </div>
                                 <div className="w-full md:w-1/2 px-2 mb-4">
                                     <label htmlFor="select-service" className="block text-lg font-medium text-gray-700">Book a Service</label>
-                                    <select
-                                        className={`form-control w-full p-3 border rounded-lg focus:outline-none ${errors.service ? 'border-red-500' : 'border-blue-300'}`}
+                                    <Select
+                                        className={`form-control w-full p-1.5 border rounded-lg focus:outline-none ${errors.service ? 'border-red-500' : 'border-blue-300'}`}
                                         name="service"
                                         id="select-service"
-                                        q value={formData.service}
-                                        onChange={handleInputChange}
-                                    >
-                                        <option value="">Select a service</option>
-                                        <option value="website-creation">Website Creation and Maintenance</option>
-                                        <option value="content-marketing">Content Marketing</option>
-                                        <option value="creative-branding">Creative Branding</option>
-                                        <option value="seo">Search Engine Optimization</option>
-                                        <option value="ssm">Social Media Marketing</option>
-                                        <option value="virtual-assistant">Virtual Assistant</option>
-                                        <option value="hosting-domain">Hosting and Domain</option>
-                                        <option value="influencer-marketing">Influencer Marketing</option>
-                                    </select>
+                                        value={serviceOptions.find(option => option.value === formData.service)}
+                                        onChange={handleSelectChange}
+                                        options={serviceOptions}
+                                        isClearable
+                                    />
+
                                     {errors.service && <p className="text-red-500 text-xs mt-1">{errors.service[0]}</p>}
                                 </div>
                                 <div className="w-full md:w-1/2 px-2 mb-4">
@@ -190,23 +204,19 @@ function BookingForm() {
                                 <div className="w-full px-2 mb-4">
                                     <label htmlFor="book-message" className="block text-lg font-medium text-gray-700">Type your message here</label>
                                     <textarea
-                                        className={`form-control w-full h-40 p-3 border rounded-lg focus:outline-none ${errors.message ? 'border-red-500' : 'border-blue-300'}`}
+                                        className={`form-control w-full h-40 p-3 border rounded-lg focus:outline-none resize-none ${errors.message ? 'border-red-500' : 'border-blue-300'}`}
                                         name="message"
                                         id="book-message"
                                         placeholder="Enter your message"
 
                                         value={formData.message}
                                         onChange={handleInputChange}
+
                                     ></textarea>
                                     {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message[0]}</p>}
                                 </div>
                                 <div className="w-full px-2">
-                                    <button
-                                        type="submit"
-                                        className="button bg-blue-700 text-white px-6 py-3 rounded-lg focus:outline-none hover:bg-blue-800"
-                                    >
-                                        Submit
-                                    </button>
+                                    <ComponentButton className='bg-blue-700 text-white px-6 py-3 rounded-lg focus:outline-none hover:bg-pink-800'>Submit</ComponentButton>
                                 </div>
                             </div>
                         </form>

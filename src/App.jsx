@@ -13,6 +13,7 @@ const Contact = lazy(() => import('./app/Contact/Index'));
 const AdminBlog = lazy(() => import('./app/Admin/Blogs/Index'));
 const Gallery = lazy(() => import('./app/Gallery/Index'));
 const Booking = lazy(() => import('./app/Book/Index'));
+// import Booking from './app/Book/Index';
 
 
 const App = () => {
