@@ -81,7 +81,7 @@ const Services = () => {
                                 </div>
                                 <div className="mt-auto">
                                     <p className="text-gray-700">{service.price}</p>
-                                    <a href="#" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded inline-block mt-2">
+                                    <a href="/booking" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded inline-block mt-2">
                                         Book Now
                                     </a>
                                 </div>

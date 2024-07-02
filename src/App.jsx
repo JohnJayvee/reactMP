@@ -8,11 +8,11 @@ import LoadingScreen from './layout/LoadingScreen';
 const Login = lazy(() => import('./app/Login/Page'));
 const HomePage = lazy(() => import('./app/Index'));
 const AboutPage = lazy(() => import('./app/About/Page'));
-const Blog = lazy(() => import('./app/Blogs/Index'));
-const Contact = lazy(() => import('./app/Contact/Index'));
-const AdminBlog = lazy(() => import('./app/Admin/Blogs/Index'));
-const Gallery = lazy(() => import('./app/Gallery/Index'));
-const Booking = lazy(() => import('./app/Book/Index'));
+const Services = lazy(() => import('./app/Services/Page'));
+const Contact = lazy(() => import('./app/Contact/Page'));
+const Booking = lazy(() => import('./app/Book/Page'));
+const PageNotFound = lazy(() => import('./app/PageNotFound/Page'));
+
 // import Booking from './app/Book/Index';
 
 
@@ -26,10 +26,9 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/prices" element={<Blog />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/admin/blog" element={<AdminBlog />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Suspense>
     </div>
