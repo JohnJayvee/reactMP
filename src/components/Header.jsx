@@ -13,7 +13,7 @@ const Header = () => {
                     <div className='flex items-center'>
                         {/* Logo or site title */}
                         <a href='#' className='text-white text-2xl font-semibold'>
-                            <FontAwesomeIcon className='text-pink-700' icon={faCode} /> JJ Web Service Solution
+                            <FontAwesomeIcon className='text-white-700' icon={faCode} /> JJ Web Service Solution
                         </a>
                     </div>
                     {/* Mobile menu button */}

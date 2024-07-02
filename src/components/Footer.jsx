@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faLocationDot, faPhone, faUserGraduate } from '@fortawesome/free-solid-svg-icons';
+import { faCode, faEnvelope, faLocationDot, faPhone, faUserGraduate } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
     return (
@@ -11,7 +11,7 @@ const Footer = () => {
                     {/* Logo and About */}
                     <div className='mb-8 md:col-span-2 lg:col-span-1 flex flex-col items-center md:items-start'>
                         <a href='/' className='text-white font-bold text-xl flex items-center'>
-                            <FontAwesomeIcon className='text-pink-700 mr-2' icon={faUserGraduate} /> Kodego College
+                            <FontAwesomeIcon className='text-white-700 mr-2' icon={faCode} /> JJ Web Service Solution
                         </a>
                         <p className='mt-4 text-md text-center md:text-left'>
                             We’d love to hear from you! Whether you have questions about our services, need to schedule an appointment, or simply want to learn more about how we can help your furry friend, our team is here to assist you.
