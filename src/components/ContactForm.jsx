@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ComponentButton from './Button';
+import ComponentInput from './Input';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -64,7 +65,7 @@ const ContactForm = () => {
                         <form onSubmit={handleSubmit} noValidate>
                             <div className="flex flex-wrap -mx-2">
                                 <div className="w-full md:w-1/2 px-2 mb-4">
-                                    <input
+                                    <ComponentInput
                                         className={`form-control w-full p-3 border rounded-lg focus:outline-none ${errors.name ? 'border-red-500' : 'border-blue-300'
                                             }`}
                                         name="name"
@@ -79,7 +80,7 @@ const ContactForm = () => {
                                     {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name[0]}</p>}
                                 </div>
                                 <div className="w-full md:w-1/2 px-2 mb-4">
-                                    <input
+                                    <ComponentInput
                                         className={`form-control w-full p-3 border rounded-lg focus:outline-none ${errors.email ? 'border-red-500' : 'border-blue-300'
                                             }`}
                                         name="email"
@@ -94,7 +95,7 @@ const ContactForm = () => {
                                     {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email[0]}</p>}
                                 </div>
                                 <div className="w-full px-2 mb-4">
-                                    <input
+                                    <ComponentInput
                                         className={`form-control w-full p-3 border rounded-lg focus:outline-none ${errors.subject ? 'border-red-500' : 'border-blue-300'
                                             }`}
                                         name="subject"

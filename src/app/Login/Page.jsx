@@ -4,7 +4,7 @@ import { faUserGraduate } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ComponentButton from '../../components/Button';
-import LoginInput from '../../components/LoginInput';
+import ComponentInput from '../../components/Input';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -99,8 +99,10 @@ const Login = () => {
                             <label htmlFor='email' className='block text-sm font-medium text-gray-700 dark:text-gray-300'>
                                 Your email
                             </label>
-                            <LoginInput id='email'
+                            <ComponentInput
+                                id='email'
                                 name='email'
+                                className={`mt-1 appearance-none rounded-md relative block w-full px-3 py-2 border placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white ${emailError ? 'border-red-500' : email ? 'border-green-500' : 'border-blue-300'}`}
                                 autoComplete='email'
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
@@ -111,7 +113,9 @@ const Login = () => {
                             <label htmlFor='password' className='block text-sm font-medium text-gray-700 dark:text-gray-300'>
                                 Password
                             </label>
-                            <LoginInput id='password'
+                            <ComponentInput
+                                id='password'
+                                className={`mt-1 appearance-none rounded-md relative block w-full px-3 py-2 border placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white ${passwordError ? 'border-red-500' : password ? 'border-green-500' : 'border-blue-300'}`}
                                 name='password'
                                 type='password'
                                 autoComplete='password'

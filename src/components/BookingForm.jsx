@@ -4,6 +4,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Select from 'react-select/creatable'
 import ComponentButton from './Button';
+import ComponentInput from './Input';
 
 
 
@@ -98,10 +99,10 @@ function BookingForm() {
                             <div className="flex flex-wrap -mx-2">
                                 <div className="w-full md:w-1/2 px-2 mb-4">
                                     <label htmlFor="first-name" className="block text-lg font-medium text-gray-700">First Name</label>
-                                    <input
+                                    <ComponentInput
+                                        id="first-name"
                                         className={`form-control w-full p-3 border rounded-lg focus:outline-none ${errors.firstName ? 'border-red-500' : 'border-blue-300'}`}
                                         name="firstName"
-                                        id="first-name"
                                         type="text"
                                         placeholder="Enter your first name"
                                         value={formData.firstName}
@@ -111,10 +112,10 @@ function BookingForm() {
                                 </div>
                                 <div className="w-full md:w-1/2 px-2 mb-4">
                                     <label htmlFor="last-name" className="block text-lg font-medium text-gray-700">Last Name</label>
-                                    <input
+                                    <ComponentInput
+                                        id="last-name"
                                         className={`form-control w-full p-3 border rounded-lg focus:outline-none ${errors.lastName ? 'border-red-500' : 'border-blue-300'}`}
                                         name="lastName"
-                                        id="last-name"
                                         type="text"
                                         placeholder="Enter your last name"
                                         value={formData.lastName}
@@ -124,10 +125,10 @@ function BookingForm() {
                                 </div>
                                 <div className="w-full md:w-1/2 px-2 mb-4">
                                     <label htmlFor="position" className="block text-lg font-medium text-gray-700">Position</label>
-                                    <input
+                                    <ComponentInput
+                                        id="position"
                                         className={`form-control w-full p-3 border rounded-lg focus:outline-none ${errors.position ? 'border-red-500' : 'border-blue-300'}`}
                                         name="position"
-                                        id="position"
                                         type="text"
                                         placeholder="Enter your position"
                                         value={formData.position}
@@ -137,10 +138,10 @@ function BookingForm() {
                                 </div>
                                 <div className="w-full md:w-1/2 px-2 mb-4">
                                     <label htmlFor="company" className="block text-lg font-medium text-gray-700">Company</label>
-                                    <input
+                                    <ComponentInput
+                                        id="company"
                                         className={`form-control w-full p-3 border rounded-lg focus:outline-none ${errors.company ? 'border-red-500' : 'border-blue-300'}`}
                                         name="company"
-                                        id="company"
                                         type="text"
                                         placeholder="Enter your company name"
                                         value={formData.company}
@@ -150,10 +151,10 @@ function BookingForm() {
                                 </div>
                                 <div className="w-full md:w-1/2 px-2 mb-4">
                                     <label htmlFor="phone-number" className="block text-lg font-medium text-gray-700">Phone Number</label>
-                                    <input
+                                    <ComponentInput
+                                        id="phone-number"
                                         className={`form-control w-full p-3 border rounded-lg focus:outline-none ${errors.cellphoneNumber ? 'border-red-500' : 'border-blue-300'}`}
                                         name="cellphoneNumber"
-                                        id="phone-number"
                                         type="text"
                                         placeholder="Enter your phone number"
                                         value={formData.cellphoneNumber}
@@ -163,10 +164,10 @@ function BookingForm() {
                                 </div>
                                 <div className="w-full md:w-1/2 px-2 mb-4">
                                     <label htmlFor="email" className="block text-lg font-medium text-gray-700">Email</label>
-                                    <input
+                                    <ComponentInput
+                                        id="email"
                                         className={`form-control w-full p-3 border rounded-lg focus:outline-none ${errors.email ? 'border-red-500' : 'border-blue-300'}`}
                                         name="email"
-                                        id="email"
                                         type="text"
                                         placeholder="Enter your email"
                                         value={formData.email}
@@ -190,7 +191,7 @@ function BookingForm() {
                                 </div>
                                 <div className="w-full md:w-1/2 px-2 mb-4">
                                     <label htmlFor="target-date" className="block text-lg font-medium text-gray-700">Target Date</label>
-                                    <input
+                                    <ComponentInput
                                         className={`form-control w-full p-3 border rounded-lg focus:outline-none ${errors.targetDate ? 'border-red-500' : 'border-blue-300'}`}
                                         name="targetDate"
                                         id="target-date"
