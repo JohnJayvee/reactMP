@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserGraduate } from '@fortawesome/free-solid-svg-icons';
+import { faGlobe, faUserGraduate } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +13,7 @@ const Header = () => {
                     <div className='flex items-center'>
                         {/* Logo or site title */}
                         <a href='#' className='text-white text-2xl font-semibold'>
-                            <FontAwesomeIcon className='text-pink-700' icon={faUserGraduate} /> Kodego College
+                            <FontAwesomeIcon className='text-white-700' icon={faGlobe} /> JJ Web Service Solution
                         </a>
                     </div>
                     {/* Mobile menu button */}

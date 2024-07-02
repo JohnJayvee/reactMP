@@ -10,6 +10,10 @@ import useInactivityTimeout from '../components/useInactivityTimeout'
 import { redirect } from "react-router-dom";
 import SectionCarousel from '../components/SectionCarousel';
 import SectionBanner from '../components/SectionBanner';
+import Services from '../components/Services';
+import SectionWebPackage from '../components/SectionWebPackage';
+import CounterUpPage from '../components/CounterUpPage';
+import SectionNewsletter from '../components/SectionNewsletter';
 
 
 const HomePage = () => {
@@ -29,10 +33,11 @@ const HomePage = () => {
     return (
         <div>
             <Header />
-            {/* <Carousel /> */}
             <SectionCarousel/>
             <SectionBanner/>
-            <Admission />
+            <SectionWebPackage />
+            <CounterUpPage />
+            <SectionNewsletter />
             <Footer />
         </div>
     );

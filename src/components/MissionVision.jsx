@@ -25,7 +25,10 @@ const MissionVision = () => {
                         <h1 className="text-3xl lg:text-4xl uppercase font-bold mb-5">We Keep Your Education Quality</h1>
                     </div>
                     <p className="text-md mb-4">
-                        Welcome to Kodego, where we specialize in crafting visually stunning and highly functional websites tailored to meet your business needs. With a focus on user-friendly design and performance optimization, we ensure every website is responsive and engaging. Our collaborative approach means we work closely with you to understand your goals and deliver custom solutions that resonate with your audience. Beyond web development, we offer SEO optimization, content management, and digital marketing services to enhance your online presence. At Kodego, we are committed to excellence, innovation, and customer satisfaction, making us your trusted partner in the digital world.
+                    Welcome to <span className="companyName">JJ Web Service Solution</span>, your trusted partner in digital excellence. We specialize in delivering top-tier Web Design, Development, and Online Marketing services tailored to your unique business needs. Our dedicated team of experts is passionate about transforming your vision into reality, crafting stunning designs, building robust and scalable websites, and driving growth through strategic online marketing.
+                    </p>
+                    <p className="text-md mb-4">
+                    We believe in the power of creativity and innovation. With years of experience and a deep understanding of the digital landscape, we are committed to providing solutions that not only meet but exceed your expectations. We take pride in our collaborative approach, working closely with you to ensure every project reflects your brand's identity and achieves your business goals.
                     </p>
                     <div className="relative overflow-hidden">
                         <ul className="flex justify-between mb-3">

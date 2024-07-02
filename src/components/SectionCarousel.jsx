@@ -10,27 +10,27 @@ function SectionCarousel(){
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item c-item active" data-bs-interval="10000">
-                        <img src="https://cdn.pixabay.com/photo/2015/12/15/06/42/kids-1093758_960_720.jpg" className="d-block w-100 c-image" alt="..."/>
+                        <img src="https://cdn.pixabay.com/photo/2023/10/10/05/52/website-8305451_1280.jpg" className="d-block w-100 c-image" alt="..."/>
                         <div className="carousel-caption top-0 mt-4">
-                            <p className="mt-5 fs-3 text-uppercase">Nurturing Young Minds</p>
-                            <h1 className="display-1 fw-bolder text-capitalize">Explore, Discover, Grow!</h1>
-                            <h6 className="display-6">At <span className="companyName">JnJ University</span>, we spark curiosity and foster a love for learning through engaging, hands-on activities.</h6>
+                            <p className="mt-5 fs-3 text-uppercase">Transform Your Vision into Stunning Reality</p>
+                            <h1 className="display-2 fw-bolder text-capitalize">Exceptional Web Design Services</h1>
+                            <h6 className="display-6">We focus on user experience, ensuring your site is both beautiful and functional.</h6>
                         </div>
                     </div>
                     <div className="carousel-item c-item" data-bs-interval="10000">
-                        <img src="https://cdn.pixabay.com/photo/2021/12/03/04/18/campus-6841791_960_720.jpg" className="d-block w-100 c-image" alt="..."/>
+                        <img src="https://cdn.pixabay.com/photo/2016/04/04/14/12/monitor-1307227_1280.jpg " className="d-block w-100 c-image" alt="..."/>
                         <div className="carousel-caption top-0 mt-4">
-                            <p className="mt-5 fs-3 text-uppercase">Inspiring Future Leaders</p>
-                            <h1 className="display-3 fw-bolder text-capitalize">Empowering Tomorrow's Leaders</h1>
-                            <h6 className="display-6">Our curriculum is designed to build confidence, teamwork, and leadership skills, preparing students for a successful future.</h6>
+                            <p className="mt-5 fs-3 text-uppercase">Build with Excellence</p>
+                            <h1 className="display-3 fw-bolder text-capitalize">Innovative Web Development Solutions</h1>
+                            <h6 className="display-6">Our expert developers bring your ideas to life with cutting-edge technology and robust coding practices.</h6>
                         </div>
                     </div>
                     <div className="carousel-item c-item">
-                        <img src="https://cdn.pixabay.com/photo/2020/01/22/09/39/teacher-4784916_960_720.jpg" className="d-block w-100 c-image" alt="..."/>
+                        <img src="https://cdn.pixabay.com/photo/2016/10/09/08/32/digital-marketing-1725340_960_720.jpg" className="d-block w-100 c-image" alt="..."/>
                         <div className="carousel-caption top-0 mt-4">
-                        <p className="mt-5 fs-3 text-uppercase">A Community of Care</p>
-                            <h1 className="display-3 fw-bolder text-capitalize">A Place Where Everyone Belongs</h1>
-                            <h6 className="display-6">Join our inclusive community where every student is valued, supported, and encouraged to reach their full potential.</h6>
+                        <p className="mt-5 fs-3 text-uppercase">Boost Your Online Presence</p>
+                            <h1 className="display-3 fw-bolder text-capitalize">Effective Online Marketing Strategies</h1>
+                            <h6 className="display-6">We help you reach your target audience, increase engagement, and achieve your business goals.</h6>
                         </div>
                     </div>
                 </div>
