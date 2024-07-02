@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import MissionVision from '../../components/MissionVision';
-import Services from '../../components/Services'
-import Team from '../../components/Team';
+import Header from '../../layout/Header';
+import Footer from '../../layout/Footer';
+import MissionVision from '../../layout/MissionVision';
+import Services from '../../layout/Services'
+import Team from '../../layout/Team';
 
 
 import './AboutPage.css';

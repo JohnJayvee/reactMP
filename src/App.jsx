@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import LoadingScreen from './components/LoadingScreen';
+import LoadingScreen from './layout/LoadingScreen';
 
 // Custom lazy function with preload
 
