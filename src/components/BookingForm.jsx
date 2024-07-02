@@ -19,6 +19,7 @@ function BookingForm() {
         service: '',
         targetDate: '',
         message: ''
+
     });
 
     const serviceOptions = [
