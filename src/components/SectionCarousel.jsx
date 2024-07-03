@@ -18,7 +18,7 @@ function SectionCarousel(){
                         </div>
                     </div>
                     <div className="carousel-item c-item" data-bs-interval="10000">
-                        <img src="https://cdn.pixabay.com/photo/2016/04/04/14/12/monitor-1307227_1280.jpg " className="d-block w-100 c-image" alt="..."/>
+                        <img src="https://cdn.pixabay.com/photo/2016/04/04/14/12/monitor-1307227_1280.jpg" className="d-block w-100 c-image" alt="..."/>
                         <div className="carousel-caption top-0 mt-4">
                             <p className="mt-5 fs-3 text-uppercase">Build with Excellence</p>
                             <h1 className="display-3 fw-bolder text-capitalize">Innovative Web Development Solutions</h1>
@@ -28,7 +28,7 @@ function SectionCarousel(){
                     <div className="carousel-item c-item">
                         <img src="https://cdn.pixabay.com/photo/2016/10/09/08/32/digital-marketing-1725340_960_720.jpg" className="d-block w-100 c-image" alt="..."/>
                         <div className="carousel-caption top-0 mt-4">
-                        <p className="mt-5 fs-3 text-uppercase">Boost Your Online Presence</p>
+                            <p className="mt-5 fs-3 text-uppercase">Boost Your Online Presence</p>
                             <h1 className="display-3 fw-bolder text-capitalize">Effective Online Marketing Strategies</h1>
                             <h6 className="display-6">We help you reach your target audience, increase engagement, and achieve your business goals.</h6>
                         </div>
