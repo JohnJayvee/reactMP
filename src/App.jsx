@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import LoadingScreen from './components/LoadingScreen';
+import Services from './components/Services';
 
 // Custom lazy function with preload
 
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/admin/blog" element={<AdminBlog />} />
+          
         </Routes>
       </Suspense>
     </div>

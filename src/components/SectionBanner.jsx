@@ -11,7 +11,7 @@ function SectionBanner(){
                     <h4 className="display-4 mt-4 fw-bolder">"Elevate Your Digital Presence with</h4>
                     <h5 className="display-5 fw-bolder">Our Expert Design, Development, and Marketing Services."</h5>
                     <p className="fs-4 fw-bolder">Let’s Build Your Success Online!</p>
-                    <button className="btn btn-primary btn-styler"><Link to={"./services"}>View Our Services</Link></button>
+                    <button className="btn btn-primary btn-styler"><Link to={"/prices"}>View Our Services</Link></button>
                 </div>
             </div>
         
