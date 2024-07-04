@@ -13,8 +13,6 @@ import SectionBanner from '../components/SectionBanner';
 import Services from '../components/Services';
 import SectionWebPackage from '../components/SectionWebPackage';
 import CounterUpPage from '../components/CounterUpPage';
-import SectionNewsletter from '../components/SectionNewsletter';
-import FetchData from '../components/FetchData';
 
 
 const HomePage = () => {
