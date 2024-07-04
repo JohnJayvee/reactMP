@@ -8,8 +8,11 @@ import ComponentInput from '../../components/Input';
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    rememberMe: false
+  });
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [generalError, setGeneralError] = useState('');
@@ -29,15 +32,10 @@ const Login = () => {
     setPasswordError('');
     setGeneralError('');
 
-    const payload = {
-      email: email,
-      password: password,
-    };
-
     try {
       const response = await axios.post(
         'http://kodegoapi.test/api/login',
-        payload,
+        formData,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -102,10 +100,10 @@ const Login = () => {
               <ComponentInput
                 id='email'
                 name='email'
-                className={`mt-1 appearance-none rounded-md relative block w-full px-3 py-2 border placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white ${emailError ? 'border-red-500' : email ? 'border-green-500' : 'border-blue-300'}`}
+                className={`mt-1 appearance-none rounded-md relative block w-full px-3 py-2 border placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white ${emailError ? 'border-red-500' : formData.email ? 'border-green-500' : 'border-blue-300'}`}
                 autoComplete='email'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder='email@example.com' />
               {emailError && <p className='text-red-500 text-sm'>{emailError}</p>}
             </div>
@@ -115,12 +113,12 @@ const Login = () => {
               </label>
               <ComponentInput
                 id='password'
-                className={`mt-1 appearance-none rounded-md relative block w-full px-3 py-2 border placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white ${passwordError ? 'border-red-500' : password ? 'border-green-500' : 'border-blue-300'}`}
+                className={`mt-1 appearance-none rounded-md relative block w-full px-3 py-2 border placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white ${passwordError ? 'border-red-500' : formData.password ? 'border-green-500' : 'border-blue-300'}`}
                 name='password'
                 type='password'
-                autoComplete='password'
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                autoComplete='current-password'
+                value={formData.password}
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 placeholder='Password' />
               {passwordError && <p className='text-red-500 text-sm'>{passwordError}</p>}
             </div>
@@ -128,9 +126,11 @@ const Login = () => {
               <div className='flex items-center'>
                 <input
                   id='remember-me'
-                  name='remember-me'
+                  name='rememberMe'
                   type='checkbox'
                   className='h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded'
+                  checked={formData.rememberMe}
+                  onChange={(e) => setFormData({ ...formData, rememberMe: e.target.checked })}
                 />
                 <label htmlFor='remember-me' className='ml-2 block text-sm text-gray-900 dark:text-gray-300'>
                   Remember me
