@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useEffect } from 'react';
-import { useRoutes, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import LoadingScreen from './layout/LoadingScreen';
 
 const Login = lazy(() => import('./app/Login/Page'));
@@ -11,18 +11,21 @@ const Booking = lazy(() => import('./app/Book/Page'));
 const PageNotFound = lazy(() => import('./app/PageNotFound/Page'));
 
 const routes = [
-  { path: '/', exact: true, title: 'Home', element: <HomePage /> },
-  { path: '/about', title: 'About', element: <AboutPage /> },
-  { path: '/contact', title: 'Contact', element: <Contact /> },
-  { path: '/booking', title: 'Booking', element: <Booking /> },
-  { path: '/services', title: 'Services', element: <Services /> },
-  { path: '/login', title: 'Login', element: <Login /> },
-  { path: '*', title: 'Page Not Found', element: <PageNotFound /> },
+  { path: '/', exact: true, title: 'Home', component: HomePage },
+  { path: '/about', title: 'About', component: AboutPage },
+  { path: '/contact', title: 'Contact', component: Contact },
+  { path: '/booking', title: 'Booking', component: Booking },
+  { path: '/services', title: 'Services', component: Services },
+  { path: '/login', title: 'Login', component: Login },
+  { path: '*', title: 'Page Not Found', component: PageNotFound },
 ];
 
 const App = () => {
   const location = useLocation();
-  const element = useRoutes(routes);
+
+  useEffect(() => {
+    document.title = ''; // Remove default title
+  }, []);
 
   useEffect(() => {
     const currentRoute = routes.find((route) => route.path === location.pathname) || routes.find((route) => route.path === '*');
@@ -34,7 +37,15 @@ const App = () => {
   return (
     <div>
       <Suspense fallback={<LoadingScreen />}>
-        {element}
+        <Routes>
+          {routes.map((route, index) => (
+            <Route
+              key={index}
+              path={route.path}
+              element={<route.component />}
+            />
+          ))}
+        </Routes>
       </Suspense>
     </div>
   );
