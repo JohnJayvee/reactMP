@@ -22,7 +22,7 @@ const MissionVision = () => {
                 <div className="pl-5 mb-5 lg:mb-0">
                     <div className="border-l-8 border-blue-700 pl-5 mb-5">
                         <h6 className="text-blue-700 text-md uppercase">About Us</h6>
-                        <h1 className="text-3xl lg:text-4xl uppercase font-bold mb-5">We Keep Your Education Quality</h1>
+                        <h1 className="text-3xl lg:text-4xl uppercase font-bold mb-5">Your Partner in Digital Excellence</h1>
                     </div>
                     <p className="text-md mb-4">
                     Welcome to <span className="companyName">JJ Web Service Solution</span>, your trusted partner in digital excellence. We specialize in delivering top-tier Web Design, Development, and Online Marketing services tailored to your unique business needs. Our dedicated team of experts is passionate about transforming your vision into reality, crafting stunning designs, building robust and scalable websites, and driving growth through strategic online marketing.
