@@ -1,3 +1,4 @@
+
 function SectionCarousel(){
     return(
         <>
@@ -44,7 +45,6 @@ function SectionCarousel(){
                 </button>
             </div>
         </div>
-        
         </>
     )
 }

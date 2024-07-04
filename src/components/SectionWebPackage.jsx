@@ -17,7 +17,7 @@ function SectionWebPackage() {
                             <br/>
                             <img src={webpackage1} />
                             <p className='fw-bold fs-2'><sup>$</sup>36<sub>/Subscription Model <br/>Paid Yearly</sub></p>
-                            <button className='btn btn-primary btn-service'>Get this Service</button>
+                            
                         </div>
                     </div>
                     <div className="col-md-4">
@@ -26,7 +26,7 @@ function SectionWebPackage() {
                             <br/>
                             <img src={webpackage3} />
                             <p className='fw-bold fs-2'><sup>$</sup>1099<sub>/One-time Payment, <br/>Paid only domain and hosting Yearly</sub></p>
-                            <button className='btn btn-primary btn-service'>Get this Service</button>
+                            
                         </div>
                     </div>
                     <div className="col-md-4">
@@ -35,7 +35,7 @@ function SectionWebPackage() {
                             <br/>
                             <img src={webpackage2} />
                             <p className='fw-bold fs-2'><sup>$</sup>396<sub>/Subscription Model <br/>Paid Yearly</sub></p>
-                            <button className='btn btn-primary btn-service'>Get this Service</button>
+                            
                         </div>
                     </div>
                 </div>
