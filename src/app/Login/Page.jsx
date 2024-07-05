@@ -20,7 +20,7 @@ const Login = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
     if (token) {
       setIsLoggedIn(true);
       navigate('/', { replace: true }); // Redirect to home if token exists
@@ -40,7 +40,7 @@ const Login = () => {
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            Authorization: `Bearer ${localStorage.getItem('token') || sessionStorage.getItem('token')}`,
           },
         }
       );
@@ -48,8 +48,12 @@ const Login = () => {
       console.log('Login successful', response);
 
       if (response.data.token) {
-        // Store token in localStorage
-        localStorage.setItem('token', response.data.token);
+        // Store token based on rememberMe flag
+        if (formData.rememberMe) {
+          localStorage.setItem('token', response.data.token);
+        } else {
+          sessionStorage.setItem('token', response.data.token);
+        }
         setIsLoggedIn(true); // Update login status
         navigate('/', { replace: true }); // Redirect to home page
       }
