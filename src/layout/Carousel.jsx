@@ -1,16 +1,18 @@
 // src/components/Carousel.jsx
 import React, { useState, useEffect } from 'react';
 import ComponentButton from '../components/Button'
+import carousel1 from '../img/c1.jpg'
+import carousel2 from '../img/c2.jpg'
+import carousel3 from '../img/c3.jpg'
+
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const items = [
-    { src: 'https://news.jrn.msu.edu/wp-content/uploads/2023/11/East-Lansing-high-school-photo.png', alt: 'Slide 1' },
-    { src: 'https://via.placeholder.com/1920x1080?text=Slide+2', alt: 'Slide 2' },
-    { src: 'https://via.placeholder.com/1920x1080?text=Slide+3', alt: 'Slide 3' },
-    { src: 'https://via.placeholder.com/1920x1080?text=Slide+4', alt: 'Slide 4' },
-    { src: 'https://via.placeholder.com/1920x1080?text=Slide+5', alt: 'Slide 5' }
+    { src: `${carousel1}`, alt: 'Slide 1' },
+    { src: `${carousel2}`, alt: 'Slide 2' },
+    { src: `${carousel3}`, alt: 'Slide 3' }
   ];
 
   useEffect(() => {
