@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ComponentButton from '../../components/Button';
 import ComponentInput from '../../components/Input';
+import ComponentLogo from '../../components/Logo'
 
 const Login = () => {
   const navigate = useNavigate();
@@ -83,8 +84,7 @@ const Login = () => {
       <div className='w-full max-w-md space-y-8'>
         <div className='text-center'>
           <a href='#' className='flex items-center justify-center text-3xl font-bold text-gray-900 dark:text-white'>
-            <FontAwesomeIcon className='text-pink-700 mr-2' icon={faCode} />
-            JJ Web Service Solution
+            <ComponentLogo />
           </a>
         </div>
         <div className='bg-white dark:bg-gray-800 dark:border-gray-700 rounded-lg shadow-lg p-8'>
