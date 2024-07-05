@@ -11,6 +11,12 @@ const useAuth = () => {
       navigate('/login', { replace: true });
     } else {
       setIsLoggedIn(true);
+      if (!localStorage.getItem('token')) {
+        // If token is in sessionStorage, remove it when the browser is closed
+        window.addEventListener('beforeunload', () => {
+          sessionStorage.removeItem('token');
+        });
+      }
     }
   }, [navigate]);
 
