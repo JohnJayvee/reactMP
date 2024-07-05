@@ -10,9 +10,10 @@ const ExpandableText = ({ children, maxChars }) => {
 
   return (
     <div>
-      {text}...
-      <button className='bg-black text-red-700' onClick={() => setShowFullText((prevState) => !prevState)}>
-        {showFullText ? 'less' : 'more'}
+      {showFullText ? `${text} ` : `${text}... `}
+      {/* {text}...&nbsp; */}
+      <button className='text-blue-500' onClick={() => setShowFullText((prevState) => !prevState)}>
+        {showFullText ? 'Less' : 'See More'}
       </button>
     </div>
   );

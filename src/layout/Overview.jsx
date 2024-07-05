@@ -1,5 +1,7 @@
 import React from 'react';
 import OverviewIMG from '../img/overview.png';
+import ComponentExpandableText from '../components/ExpandableText';
+
 
 const Overview = () => {
   return (
@@ -17,9 +19,11 @@ const Overview = () => {
             JJ Web Service Solution is a full-service digital marketing agency based in Manila, Philippines.
           </h3>
           <p className='mb-4'>
-            We rely on high-quality, research-based insights as well as experience, intellect and intuition. We apply rigorous analysis and strategic thinking to create the most effective digital communications solutions for all our clients. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel quos nam nobis accusamus placeat exercitationem, iste quas odio quisquam, distinctio eius incidunt blanditiis possimus consectetur commodi aspernatur explicabo eum odit! Dolores quidem eaque ipsam, ducimus tenetur nobis obcaecati soluta explicabo fuga hic voluptatibus exercitationem magni voluptatem inventore! In, repudiandae quibusdam!
+            <ComponentExpandableText maxChars={200}>
+              We rely on high-quality, research-based insights as well as experience, intellect and intuition. We apply rigorous analysis and strategic thinking to create the most effective digital communications solutions for all our clients. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel quos nam nobis accusamus placeat exercitationem, iste quas odio quisquam, distinctio eius incidunt blanditiis possimus consectetur commodi aspernatur explicabo eum odit! Dolores quidem eaque ipsam, ducimus tenetur nobis obcaecati soluta explicabo fuga hic voluptatibus exercitationem magni voluptatem inventore! In, repudiandae quibusdam!
+            </ComponentExpandableText>
           </p>
-          <a className='text-blue-500 hover:underline' href='/about'>About Us</a>
+          {/* <a className='text-blue-500 hover:underline' href='/about'>About Us</a> */}
         </div>
       </div>
     </div>
