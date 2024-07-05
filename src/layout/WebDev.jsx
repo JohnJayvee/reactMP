@@ -1,5 +1,6 @@
 import React from 'react';
 import WebDevIMG from '../img/webDev.png';
+import ComponentExpandableText from '../components/ExpandableText';
 
 const WebDev = () => {
   return (
@@ -17,9 +18,11 @@ const WebDev = () => {
             Our web development team excels in creating dynamic and scalable digital solutions, leveraging cutting-edge technologies to empower businesses and enhance their online presence.
           </h3>
           <p className='mb-4'>
-            Our custom web design services encompass a wide spectrum of offerings, ranging from crafting straightforward WordPress websites using meticulously customized design themes to developing sophisticated content management systems (CMS) using robust yet flexible frameworks. Our approach integrates meticulous attention to detail with innovative design principles, ensuring each website is not only visually appealing but also tailored to meet the unique needs and objectives of our clients. Whether it's enhancing user experience through intuitive navigation and responsive design or implementing advanced functionalities, our team is dedicated to delivering comprehensive solutions that empower businesses to thrive in the digital landscape.
+            <ComponentExpandableText maxChars={200}>
+              Our custom web design services encompass a wide spectrum of offerings, ranging from crafting straightforward WordPress websites using meticulously customized design themes to developing sophisticated content management systems (CMS) using robust yet flexible frameworks. Our approach integrates meticulous attention to detail with innovative design principles, ensuring each website is not only visually appealing but also tailored to meet the unique needs and objectives of our clients. Whether it's enhancing user experience through intuitive navigation and responsive design or implementing advanced functionalities, our team is dedicated to delivering comprehensive solutions that empower businesses to thrive in the digital landscape.
+            </ComponentExpandableText>
           </p>
-          <a className='text-blue-500 hover:underline' href='/about'>About Us</a>
+          {/* <a className='text-blue-500 hover:underline' href='/about'>About Us</a> */}
         </div>
       </div>
     </div>
