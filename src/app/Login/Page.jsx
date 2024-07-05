@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserGraduate } from '@fortawesome/free-solid-svg-icons';
+import { faCode } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ComponentButton from '../../components/Button';
@@ -83,8 +83,8 @@ const Login = () => {
       <div className='w-full max-w-md space-y-8'>
         <div className='text-center'>
           <a href='#' className='flex items-center justify-center text-3xl font-bold text-gray-900 dark:text-white'>
-            <FontAwesomeIcon className='text-pink-700 mr-2' icon={faUserGraduate} />
-            Kodego College
+            <FontAwesomeIcon className='text-pink-700 mr-2' icon={faCode} />
+            JJ Web Service Solution
           </a>
         </div>
         <div className='bg-white dark:bg-gray-800 dark:border-gray-700 rounded-lg shadow-lg p-8'>
