@@ -128,7 +128,7 @@ const Feedbacks = () => {
     <div className="container mx-auto p-4 mt-20">
       <div className="border-l-4 border-blue-700 pl-4 mb-4 md:mb-6 lg:mb-12">
         <h6 className="text-blue-700 uppercase">Feedbacks</h6>
-        <h1 className="text-3xl md:text-4xl uppercase font-bold mb-0">Recomendation</h1>
+        <h1 className="text-3xl md:text-4xl uppercase font-bold mb-0">We continuously incorporate customer feedbacks to refine our products and ensure they meet the evolving needs of our users.</h1>
       </div>
       <Slider {...settings}>
         {Feedbacks.map((feedback, index) => (
