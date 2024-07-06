@@ -11,12 +11,22 @@ const useAuth = () => {
       navigate('/login', { replace: true });
     } else {
       setIsLoggedIn(true);
-      if (!localStorage.getItem('token')) {
-        // If token is in sessionStorage, remove it when the browser is closed
-        window.addEventListener('beforeunload', () => {
-          sessionStorage.removeItem('token');
-        });
-      }
+
+      // // Handle logout only when token is in sessionStorage
+      // if (!localStorage.getItem('token')) {
+      //   const handleBeforeUnload = (event) => {
+      //     // Ensure token removal only when browser/tab is closed, not on page reload
+      //     if (event.currentTarget.performance.navigation.type !== 1) {
+      //       sessionStorage.removeItem('token');
+      //     }
+      //   };
+
+      //   window.addEventListener('beforeunload', handleBeforeUnload);
+
+      //   return () => {
+      //     window.removeEventListener('beforeunload', handleBeforeUnload);
+      //   };
+      // }
     }
   }, [navigate]);
 
