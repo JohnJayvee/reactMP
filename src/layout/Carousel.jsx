@@ -5,14 +5,13 @@ import carousel1 from '../img/c1.jpg'
 import carousel2 from '../img/c2.jpg'
 import carousel3 from '../img/c3.jpg'
 
-
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const items = [
-    { src: `${carousel1}`, alt: 'Slide 1' },
-    { src: `${carousel2}`, alt: 'Slide 2' },
-    { src: `${carousel3}`, alt: 'Slide 3' }
+    { src: `${carousel1}`, alt: 'Slide 1', text: 'Exceptional Web Design Services' },
+    { src: `${carousel2}`, alt: 'Slide 2', text: 'Innovative Web Development Solution' },
+    { src: `${carousel3}`, alt: 'Slide 3', text: 'Effective Online Marketing Strategies' }
   ];
 
   useEffect(() => {
@@ -40,6 +39,10 @@ const Carousel = () => {
               alt={item.alt}
               className="block w-full h-full object-cover"
             />
+            <div className="absolute inset-0 flex items-center justify-center p-4 bg-black/50 text-white text-center">
+              <h1 className='text-4xl md:text-6xl lg:text-8xl uppercase font-bold mb-0'>{item.text}</h1>
+
+            </div>
           </div>
         ))}
       </div>
@@ -67,7 +70,6 @@ const Carousel = () => {
         </span>
       </ComponentButton>
       <ComponentButton
-
         className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={() => updateCarousel(currentIndex + 1)}
       >
