@@ -8,12 +8,11 @@ import useInactivityTimeout from '../components/useInactivityTimeout'
 import Feedback from '../layout/Feedback';
 import Overview from '../layout/Overview';
 import WebDev from '../layout/WebDev';
-import Carousel2 from '../layout/Carousel2';
 
 
 
 const HomePage = () => {
-    // const isLoggedIn = useAuth();
+    const isLoggedIn = useAuth();
 
     useInactivityTimeout(() => {
         if (sessionStorage.getItem("token")) {
@@ -21,22 +20,18 @@ const HomePage = () => {
             window.location.reload();
         } else if (localStorage.getItem("token")) {
             return null;
-            // Handle the case where you don't want to remove from localStorage
-            // Example: localStorage.removeItem("token");
-            // Or do nothing if you intend to keep it in localStorage
         }
     });
 
-    // if (!isLoggedIn) {
-    //     return null;
-    // }
+    if (!isLoggedIn) {
+        return null;
+    }
 
 
     return (
         <div>
             <Header />
-            {/* <Carousel /> */}
-            <Carousel2 />
+            <Carousel />
             <Overview />
             <WebDev />
             <Feedback />
