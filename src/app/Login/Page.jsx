@@ -60,6 +60,7 @@ const Login = () => {
       }
     } catch (error) {
       console.error('Login error', error);
+      console.log(error.response);
 
       if (error.response) {
         const errors = error.response.data.errors;
@@ -127,7 +128,6 @@ const Login = () => {
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   placeholder='Password'
                 />
-                {passwordError && <p className='text-red-500 text-sm'>{passwordError}</p>}
                 <span
                   className='absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer'
                   onClick={() => setFormData({ ...formData, showPassword: !formData.showPassword })}
@@ -135,6 +135,7 @@ const Login = () => {
                   {formData.showPassword ? <FontAwesomeIcon icon={faEyeSlash} className='hover:text-pink-700' /> : <FontAwesomeIcon icon={faEye} className='hover:text-pink-700' />}
                 </span>
               </div>
+              {passwordError && <p className='text-red-500 text-sm'>{passwordError}</p>}
             </div>
             <div className='flex items-center justify-between'>
               <div className='flex items-center'>
