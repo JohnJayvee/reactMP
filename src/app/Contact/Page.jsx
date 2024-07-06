@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import ContactForm from '../../components/ContactForm';
 import Header from '../../layout/Header';
 import Footer from '../../layout/Footer';
@@ -6,15 +6,14 @@ import Footer from '../../layout/Footer';
 
 
 const Contact = () => {
-    return (
-        <div>
-            <Header />
-            <ContactForm />
+  return (
+    <div>
+      <Header />
+      <ContactForm />
+      <Footer />
+    </div>
 
-            <Footer />
-        </div>
-
-    );
+  );
 }
 
 export default Contact
