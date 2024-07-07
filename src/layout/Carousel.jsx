@@ -25,7 +25,7 @@ const Carousel = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000, // Set autoplay interval to 2 seconds
+    autoplaySpeed: 5000, // Set autoplay interval to 2 seconds
     //nextArrow: <NextArrow />, // Disable Next Arrow
     //prevArrow: <PrevArrow />, // Disable Previous Arrow
     accessibility: false, // Disable keyboard navigation
