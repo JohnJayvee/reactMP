@@ -1,6 +1,6 @@
 import { useEffect, useCallback, useRef } from 'react';
 
-const useInactivityTimeout = (callback, timeout = 2 * 60 * 1000) => {
+const useInactivityTimeout = (callback, timeout = 1 * 60 * 1000) => {
   const timeoutIdRef = useRef(null);
 
   const handleActivity = useCallback(() => {
@@ -18,7 +18,7 @@ const useInactivityTimeout = (callback, timeout = 2 * 60 * 1000) => {
     window.addEventListener('keydown', handleActivity);
     window.addEventListener('scroll', handleActivity);
     window.addEventListener('click', handleActivity);
-    window.addEventListener('beforeunload', callback); // Add this line
+    // window.addEventListener('beforeunload', callback); // Add this line
 
     handleActivity(); // Set the timeout initially
 
@@ -27,7 +27,7 @@ const useInactivityTimeout = (callback, timeout = 2 * 60 * 1000) => {
       window.removeEventListener('keydown', handleActivity);
       window.removeEventListener('scroll', handleActivity);
       window.removeEventListener('click', handleActivity);
-      window.removeEventListener('beforeunload', callback); // Add this line
+      // window.removeEventListener('beforeunload', callback); // Add this line
       if (timeoutIdRef.current) {
         clearTimeout(timeoutIdRef.current);
       }
