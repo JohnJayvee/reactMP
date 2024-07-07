@@ -7,6 +7,8 @@ const useAuth = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+
+
     if (!token) {
       navigate('/login', { replace: true });
     } else {
