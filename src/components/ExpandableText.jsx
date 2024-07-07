@@ -12,7 +12,7 @@ const ExpandableText = ({ children, maxChars }) => {
     <div>
       {showFullText ? `${text} ` : `${text}... `}
       {/* {text}...&nbsp; */}
-      <button className='text-blue-700' onClick={() => setShowFullText((prevState) => !prevState)}>
+      <button className='text-blue-700 hover:text-pink-700 hover:font-bold' onClick={() => setShowFullText((prevState) => !prevState)}>
         {showFullText ? 'Less' : 'See More'}
       </button>
     </div>
