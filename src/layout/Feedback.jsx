@@ -10,10 +10,9 @@ import axios from 'axios';
 
 import image from '../img/blog-1.jpg';
 
-
-const NextArrow = ({ className, onClick }) => (
+const CustomNextArrow = ({ onClick }) => (
   <div
-    className={className}
+    className="absolute top-1/2 transform -translate-y-1/2 right-0 z-10 cursor-pointer"
     style={{
       display: 'block',
       position: 'absolute',
@@ -22,7 +21,7 @@ const NextArrow = ({ className, onClick }) => (
       right: '-20px',
       zIndex: 1,
       cursor: 'pointer',
-    }}
+    }} // Adjust position here
     onClick={onClick}
   >
     <FontAwesomeIcon
@@ -32,16 +31,13 @@ const NextArrow = ({ className, onClick }) => (
   </div>
 );
 
-NextArrow.propTypes = {
-  className: PropTypes.string,
+CustomNextArrow.propTypes = {
   onClick: PropTypes.func,
 };
 
-
-
-const PrevArrow = ({ className, onClick }) => (
+const CustomPrevArrow = ({ onClick }) => (
   <div
-    className={className}
+    className="absolute top-1/2 transform -translate-y-1/2 left-0 z-10 cursor-pointer"
     style={{
       display: 'block',
       position: 'absolute',
@@ -50,7 +46,7 @@ const PrevArrow = ({ className, onClick }) => (
       left: '-20px',
       zIndex: 1,
       cursor: 'pointer',
-    }}
+    }} // Adjust position here
     onClick={onClick}
   >
     <FontAwesomeIcon
@@ -58,11 +54,9 @@ const PrevArrow = ({ className, onClick }) => (
       icon={faArrowLeft}
     />
   </div>
-
 );
 
-PrevArrow.propTypes = {
-  className: PropTypes.string,
+CustomPrevArrow.propTypes = {
   onClick: PropTypes.func,
 };
 
@@ -72,8 +66,8 @@ const Feedbacks = () => {
   useEffect(() => {
     axios.get('http://kodegoapi.test/api/feedbacks', {
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     })
       .then(response => {
         console.log('API Response:', response);
@@ -95,8 +89,8 @@ const Feedbacks = () => {
     speed: 500,
     slidesToShow: 4, // Show 4 slides on desktop
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    nextArrow: <CustomNextArrow />,
+    prevArrow: <CustomPrevArrow />,
     responsive: [
       {
         breakpoint: 1024, // for large tablets and small desktops
@@ -105,23 +99,23 @@ const Feedbacks = () => {
           slidesToScroll: 1,
           infinite: true,
           dots: false,
-        }
+        },
       },
       {
         breakpoint: 768, // for tablets
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-        }
+        },
       },
       {
         breakpoint: 480, // for mobile devices
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
 
   return (
