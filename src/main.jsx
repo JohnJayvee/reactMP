@@ -5,12 +5,17 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 // import './index.css';
 import './styles.css'; // Import Tailwind CSS
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
