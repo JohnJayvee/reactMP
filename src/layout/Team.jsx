@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 // import 'slick-carousel/slick/slick-theme.css'; // Uncomment if needed
@@ -67,26 +67,30 @@ PrevArrow.propTypes = {
 };
 
 const TeamSection = () => {
+  const initialized = useRef(false);
   const [teamMembers, setTeamMembers] = useState([]);
 
   useEffect(() => {
-    axios.get('http://kodegoapi.test/api/staffs', {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(response => {
-        console.log('API Response:', response);
-        // Ensure the response data has a staffs array
-        if (response.data.success && Array.isArray(response.data.staffs)) {
-          setTeamMembers(response.data.staffs);
-        } else {
-          console.error('Unexpected response format:', response.data);
+    if (!initialized.current) {
+      initialized.current = true
+      axios.get('http://kodegoapi.test/api/staffs', {
+        headers: {
+          'Content-Type': 'application/json'
         }
       })
-      .catch(error => {
-        console.error('Error fetching the team members:', error);
-      });
+        .then(response => {
+          console.log('API Response:', response);
+          // Ensure the response data has a staffs array
+          if (response.data.success && Array.isArray(response.data.staffs)) {
+            setTeamMembers(response.data.staffs);
+          } else {
+            console.error('Unexpected response format:', response.data);
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching the team members:', error);
+        });
+    }
   }, []);
 
   const settings = {
