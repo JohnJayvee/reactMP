@@ -9,6 +9,8 @@ const Services = lazy(() => import('./app/Services/Page'));
 const Contact = lazy(() => import('./app/Contact/Page'));
 const Booking = lazy(() => import('./app/Book/Page'));
 const PageNotFound = lazy(() => import('./app/PageNotFound/Page'));
+const AdminPage = lazy(() => import('./app/Admin/AdminIndex'));
+
 
 const routes = [
   { path: '/', exact: true, title: 'Home', element: <HomePage /> },
@@ -17,6 +19,7 @@ const routes = [
   { path: '/booking', title: 'Booking', element: <Booking /> },
   { path: '/services', title: 'Services', element: <Services /> },
   { path: '/login', title: 'Login', element: <Login /> },
+  { path: '/admin', title: 'Login', element: <AdminPage /> },
   { path: '*', title: 'Page Not Found', element: <PageNotFound /> },
 ];
 
