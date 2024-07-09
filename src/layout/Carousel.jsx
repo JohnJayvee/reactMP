@@ -46,7 +46,7 @@ const Carousel = () => {
   }, []);
 
   return (
-    <div id="controls-carousel" className="relative w-full h-screen">
+    <div id="controls-carousel" className="relative w-full h-screen overflow-x-hidden">
       <Slider ref={sliderRef} {...settings}>
         {items.map((item, index) => (
           <div key={index} className="relative w-full h-screen">
