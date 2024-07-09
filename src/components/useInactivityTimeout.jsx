@@ -1,6 +1,6 @@
 import { useEffect, useCallback, useRef } from 'react';
 
-const useInactivityTimeout = (callback, timeout = 1 * 60 * 1000) => {
+const useInactivityTimeout = (callback, timeout = 15 * 60 * 1000) => {
   const timeoutIdRef = useRef(null);
 
   const handleActivity = useCallback(() => {
