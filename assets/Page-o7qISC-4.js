@@ -1,4 +1,4 @@
-import{j as n}from"./index-CR4UugtV.js";import{H as t,F as s}from"./Footer-D-SJfKaL.js";import"./Logo-C2LjLn-S.js";const d=()=>{const a=[{name:"GROWTH ASSISTANT",description:`Campaign Management 
+import{j as n}from"./index-D6ozIQz6.js";import{H as t,F as s}from"./Footer-CQfDDxN4.js";import"./Logo-C_UX7X5j.js";const d=()=>{const a=[{name:"GROWTH ASSISTANT",description:`Campaign Management 
 Aggregated reporting and mapping 
 QA and Testing 
 Updating Dashboards 
