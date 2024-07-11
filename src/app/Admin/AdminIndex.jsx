@@ -1,9 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import useAuth from '../../components/Auth';
+import useInactivityTimeout from '../../components/useInactivityTimeout'
 
 
 const AdminIndex = () => {
   const [activeSection, setActiveSection] = useState('dashboard');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const isLoggedIn = useAuth();
+
+  useInactivityTimeout(() => {
+    if (sessionStorage.getItem("token")) {
+      sessionStorage.removeItem("token");
+      window.location.reload();
+    } else if (localStorage.getItem("token")) {
+      return null;
+    }
+  });
+
+  if (!isLoggedIn) {
+    return null;
+  }
 
 
   return (
