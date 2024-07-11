@@ -19,9 +19,11 @@ const routes = [
   { path: '/booking', title: 'Booking', element: <Booking /> },
   { path: '/services', title: 'Services', element: <Services /> },
   { path: '/login', title: 'Login', element: <Login /> },
-  { path: '/admin', title: 'Login', element: <AdminPage /> },
+  { path: '/admin', title: 'Dashboard', element: <AdminPage /> },
   { path: '*', title: 'Page Not Found', element: <PageNotFound /> },
 ];
+
+const appName = 'JJ Web Service Solution'
 
 const App = () => {
   const location = useLocation();
@@ -30,7 +32,7 @@ const App = () => {
   useEffect(() => {
     const currentRoute = routes.find((route) => route.path === location.pathname) || routes.find((route) => route.path === '*');
     if (currentRoute) {
-      document.title = currentRoute.title;
+      document.title = `${currentRoute.title} | ${appName}`;
     }
   }, [location]);
 
