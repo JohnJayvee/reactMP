@@ -24,7 +24,7 @@ const Login = () => {
     const token = localStorage.getItem('token') || sessionStorage.getItem('token');
     if (token) {
       setIsLoggedIn(true);
-      navigate('/', { replace: true }); // Redirect to home if token exists
+      navigate('/admin', { replace: true }); // Redirect to home if token exists
     }
   }, [navigate]);
 
@@ -36,7 +36,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        'http://kodegoapi.test/api/login',
+        'http://122.52.132.239/Kodegoapi/public/index.php/api/login',
         formData,
         {
           headers: {
@@ -56,7 +56,7 @@ const Login = () => {
           sessionStorage.setItem('token', response.data.token);
         }
         setIsLoggedIn(true); // Update login status
-        navigate('/', { replace: true }); // Redirect to home page
+        navigate('/admin', { replace: true }); // Redirect to home page
       }
     } catch (error) {
       console.error('Login error', error);
