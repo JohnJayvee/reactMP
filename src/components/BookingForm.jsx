@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -22,24 +22,28 @@ function BookingForm() {
 
   const [serviceOptions, setServiceOptions] = useState([]);
   const [errors, setErrors] = useState({});
+  const initialized = useRef(false);
 
   useEffect(() => {
     const fetchServiceOptions = async () => {
-      try {
-        const response = await axios.get('http://kodegoapi.test/api/services');
-        console.log('Full response:', response);
-        console.log('Response data:', response.data);
+      if (!initialized.current) {
+        initialized.current = true
+        try {
+          const response = await axios.get('http://kodegoapi.test/api/services');
+          console.log('Full response:', response);
+          console.log('Response data:', response.data);
 
-        // Assuming the API response is an object with a 'services' array
-        const options = response.data.services.map(service => ({
-          value: service.id,
-          label: service.name
-        }));
+          // Assuming the API response is an object with a 'services' array
+          const options = response.data.services.map(service => ({
+            value: service.id,
+            label: service.name
+          }));
 
-        setServiceOptions(options);
-      } catch (error) {
-        console.error('Error fetching service options:', error);
-        toast.error('Failed to load service options.');
+          setServiceOptions(options);
+        } catch (error) {
+          console.error('Error fetching service options:', error);
+          toast.error('Failed to load service options.');
+        }
       }
     };
 
