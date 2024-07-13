@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Select from 'react-select/creatable'
+import Select from 'react-select';
 import ComponentButton from './Button';
 import ComponentInput from './Input';
 import ComponentTextarea from './Textarea';
-
-
 
 function BookingForm() {
   const [formData, setFormData] = useState({
@@ -20,34 +18,44 @@ function BookingForm() {
     service: '',
     targetDate: '',
     message: ''
-
   });
 
-  const serviceOptions = [
-    { value: 'website-creation', label: 'Website Creation and Maintenance' },
-    { value: 'content-marketing', label: 'Content Marketing' },
-    { value: 'creative-branding', label: 'Creative Branding' },
-    { value: 'seo', label: 'Search Engine Optimization' },
-    { value: 'ssm', label: 'Social Media Marketing' },
-    { value: 'virtual-assistant', label: 'Virtual Assistant' },
-    { value: 'hosting-domain', label: 'Hosting and Domain' },
-    { value: 'influencer-marketing', label: 'Influencer Marketing' },
-  ];
+  const [serviceOptions, setServiceOptions] = useState([]);
+  const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    const fetchServiceOptions = async () => {
+      try {
+        const response = await axios.get('http://kodegoapi.test/api/services');
+        console.log('Full response:', response);
+        console.log('Response data:', response.data);
+
+        // Assuming the API response is an object with a 'services' array
+        const options = response.data.services.map(service => ({
+          value: service.id,
+          label: service.name
+        }));
+
+        setServiceOptions(options);
+      } catch (error) {
+        console.error('Error fetching service options:', error);
+        toast.error('Failed to load service options.');
+      }
+    };
+
+    fetchServiceOptions();
+  }, []);
+
   const handleSelectChange = (selectedOption) => {
     setFormData({ ...formData, service: selectedOption ? selectedOption.value : '' });
     setErrors({ ...errors, service: null });
   };
 
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
-    // Clear error for the current input field on change
     setErrors({ ...errors, [name]: null });
   };
-
-
-  const [errors, setErrors] = useState({});
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -61,7 +69,6 @@ function BookingForm() {
 
       console.log('Response:', response.data);
       toast.success('Form submitted successfully!');
-      // Reset form after successful submission
       setFormData({
         firstName: '',
         lastName: '',
@@ -188,7 +195,6 @@ function BookingForm() {
                     options={serviceOptions}
                     isClearable
                   />
-
                   {errors.service && <p className="text-red-500 text-xs mt-1">{errors.service[0]}</p>}
                 </div>
                 <div className="w-full md:w-1/2 px-2 mb-4">
@@ -196,29 +202,29 @@ function BookingForm() {
                   <ComponentInput
                     className={`form-control w-full p-3 border rounded-lg focus:outline-none ${errors.targetDate ? 'border-red-500' : formData.targetDate ? 'border-green-500' : 'border-blue-300'}`}
                     name="targetDate"
-                    id="target-date"
                     type="date"
-
+                    placeholder="Select target date"
                     value={formData.targetDate}
                     onChange={handleInputChange}
                   />
                   {errors.targetDate && <p className="text-red-500 text-xs mt-1">{errors.targetDate[0]}</p>}
                 </div>
                 <div className="w-full px-2 mb-4">
-                  <label htmlFor="book-message" className="block text-lg font-medium text-gray-700">Type your message here</label>
+                  <label htmlFor="message" className="block text-lg font-medium text-gray-700">Message</label>
                   <ComponentTextarea
-                    className={`form-control w-full h-40 p-3 border rounded-lg focus:outline-none resize-none ${errors.message ? 'border-red-500' : formData.message ? 'border-green-500' : 'border-blue-300'}`}
+                    className={`form-control w-full h-40 p-3 border rounded-lg focus:outline-none resize-none ${errors.message ? 'border-red-500' : formData.message ? 'border-green-500' : 'border-blue-300'
+                      }`}
                     name="message"
-                    id="book-message"
-                    placeholder="Enter your message"
-
+                    id="message"
                     value={formData.message}
                     onChange={handleInputChange}
-
+                    // onFocus={(e) => (e.target.placeholder = '')}
+                    // onBlur={(e) => (e.target.placeholder = 'Enter Message')}
+                    placeholder="Enter Message"
                   ></ComponentTextarea>
                   {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message[0]}</p>}
                 </div>
-                <div className="w-full px-2">
+                <div className="w-full px-2 mb-4">
                   <ComponentButton className='bg-blue-700 text-white px-6 py-3 rounded-lg focus:outline-none hover:bg-pink-800'>Submit</ComponentButton>
                 </div>
               </div>
