@@ -28,8 +28,8 @@ const Input = ({
 };
 
 Input.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  name: PropTypes.string,
   type: PropTypes.string,
   autoComplete: PropTypes.string,
   required: PropTypes.bool,
