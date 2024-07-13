@@ -24,7 +24,7 @@ const Login = () => {
     const token = localStorage.getItem('token') || sessionStorage.getItem('token');
     if (token) {
       setIsLoggedIn(true);
-      navigate('/admin', { replace: true }); // Redirect to home if token exists
+      navigate('/admin', { replace: true }); // Redirect to dashboard if token exists
     }
   }, [navigate]);
 
@@ -36,7 +36,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        'http://122.52.132.239/Kodegoapi/public/index.php/api/login',
+        'http://kodegoapi.test/api/login',
         formData,
         {
           headers: {
@@ -92,7 +92,7 @@ const Login = () => {
           <a href='#' className='flex items-center justify-center text-3xl font-bold text-gray-900 dark:text-white'>
             <ComponentLogo />
           </a>
-        </div>
+        </div>e
         <div className='bg-white dark:bg-gray-800 dark:border-gray-700 rounded-lg shadow-lg p-8'>
           <h2 className='text-center text-2xl font-bold text-gray-900 dark:text-white'>
             Sign in to your account
