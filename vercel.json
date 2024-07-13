@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "122.52.132.239/Kodegoapi/public/index.php/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
